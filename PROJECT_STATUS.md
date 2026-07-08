@@ -14,6 +14,7 @@ Phase 0: Project Setup
 - The product will be designed as a modular system so resume generation, job tracking, dashboards, authentication, AI modules, and CRM features can evolve independently.
 - Frontend, backend, database, API, and AI module boundaries will be documented before implementation.
 - Project history will be preserved in this file through chronological append-only updates.
+- Major product, architecture, and workflow decisions will be tracked in `DECISIONS.md`.
 
 ## Completed Tasks
 
@@ -21,10 +22,11 @@ Phase 0: Project Setup
 - Defined development rules for engineering workflow and code quality.
 - Created a phase-based product roadmap.
 - Created initial architecture documentation.
+- Created decisions log for major product, architecture, and workflow decisions.
 
 ## Current Task
 
-Initialize project documentation and commit it on the `feature/project-documentation` branch.
+Maintain Phase 0 project documentation on the `feature/project-documentation` branch.
 
 ## Upcoming Tasks
 
@@ -64,3 +66,5 @@ Initialize project documentation and commit it on the `feature/project-documenta
 - Added `DEVELOPMENT_RULES.md` to define engineering standards.
 - Added `PROJECT_ROADMAP.md` to define product phases from setup through AI career assistant.
 - Added `docs/architecture.md` to document planned frontend, backend, database, API, folder structure, and future AI modules.
+- Added `DECISIONS.md` to track major product, architecture, and workflow decisions.
+- Recorded initial decisions for React + Vite, FastAPI, SQLite, markdown documentation, branch-based Git workflow, and MVP-first product sequencing.
