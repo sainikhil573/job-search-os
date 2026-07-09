@@ -6,11 +6,11 @@ Job Search OS is a long-term product vision for an AI-powered operating system f
 
 ## Current Phase
 
-Phase 0: Project Setup
+Phase 1: App Foundation
 
 ## Architecture Decisions
 
-- The project will begin with documentation and planning before application code is introduced.
+- The project began with documentation and planning before application code was introduced.
 - The product will be designed as a modular system so resume generation, job tracking, dashboards, authentication, AI modules, and CRM features can evolve independently.
 - Frontend, backend, database, API, and AI module boundaries will be documented before implementation.
 - Project history will be preserved in this file through chronological append-only updates.
@@ -23,25 +23,29 @@ Phase 0: Project Setup
 - Created a phase-based product roadmap.
 - Created initial architecture documentation.
 - Created decisions log for major product, architecture, and workflow decisions.
+- Created the initial React + Vite frontend application skeleton.
+- Added Tailwind CSS configuration for the frontend.
+- Added basic Dashboard, Profile, Resume Studio, and Job Tracker pages.
+- Added simple frontend navigation between foundation pages.
+- Created the initial FastAPI backend application skeleton.
+- Added SQLAlchemy and SQLite configuration.
+- Added `GET /health` backend health check endpoint.
 
 ## Current Task
 
-Maintain Phase 0 project documentation on the `feature/project-documentation` branch.
+Complete Phase 1 app foundation on the `feature/app-foundation` branch.
 
 ## Upcoming Tasks
 
-- Review and approve Phase 0 documentation.
-- Select the initial frontend framework and backend framework.
-- Define repository folder structure before implementation.
-- Create initial application scaffolding in a future feature branch.
+- Review and approve Phase 1 app foundation.
+- Define initial domain models for resume and job tracking workflows.
 - Establish testing, linting, formatting, and CI standards.
 
 ## Known Issues
 
-- No application code exists yet.
-- No runtime environment has been configured yet.
+- No authentication has been added yet.
 - No database schema has been designed yet.
-- No authentication provider has been selected yet.
+- No AI features have been added yet.
 
 ## Future Features
 
@@ -68,3 +72,9 @@ Maintain Phase 0 project documentation on the `feature/project-documentation` br
 - Added `docs/architecture.md` to document planned frontend, backend, database, API, folder structure, and future AI modules.
 - Added `DECISIONS.md` to track major product, architecture, and workflow decisions.
 - Recorded initial decisions for React + Vite, FastAPI, SQLite, markdown documentation, branch-based Git workflow, and MVP-first product sequencing.
+- Began Phase 1 app foundation on the `feature/app-foundation` branch.
+- Added a runnable React + Vite frontend in `frontend/`.
+- Added Tailwind CSS setup and basic navigation across Dashboard, Profile, Resume Studio, and Job Tracker pages.
+- Added a runnable FastAPI backend in `backend/`.
+- Added SQLAlchemy SQLite configuration and a `GET /health` endpoint.
+- Updated `README.md` with local setup instructions.
