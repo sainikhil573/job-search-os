@@ -8,6 +8,25 @@ Job Search OS is a long-term product vision for an AI-powered operating system f
 
 Phase 2: Profile Module
 
+## Current Sprint
+
+Engineering quality and process documentation on the `feature/engineering-guide` branch.
+
+## Current Milestone
+
+Establish the permanent engineering handbook, QA checklist, contribution workflow, changelog, and feature documentation standards.
+
+## Next Milestone
+
+Establish testing, linting, formatting, and CI standards for frontend and backend development.
+
+## Recent Merges
+
+- `0.1.0` Repository Setup
+- `0.2.0` Project Documentation
+- `0.3.0` Application Foundation
+- `0.4.0` Profile Module
+
 ## Architecture Decisions
 
 - The project began with documentation and planning before application code was introduced.
@@ -15,6 +34,7 @@ Phase 2: Profile Module
 - Frontend, backend, database, API, and AI module boundaries will be documented before implementation.
 - Project history will be preserved in this file through chronological append-only updates.
 - Major product, architecture, and workflow decisions will be tracked in `DECISIONS.md`.
+- Engineering process, QA, contribution, and changelog standards will be maintained as first-class project documentation.
 
 ## Completed Tasks
 
@@ -35,16 +55,21 @@ Phase 2: Profile Module
 - Added `GET /profile`, `POST /profile`, and `PUT /profile` backend endpoints.
 - Built the Profile page form with save/update support for core candidate details, education, work experience, skills, and projects.
 - Added basic Profile page success and error messaging.
+- Created `AI_ENGINEERING_GUIDE.md` as the permanent handbook for AI-assisted engineering sessions.
+- Created `QA_CHECKLIST.md` as a reusable validation checklist.
+- Created `CHANGELOG.md` using semantic versioning for merged feature history.
+- Created `CONTRIBUTING.md` for branch, pull request, coding, documentation, and review expectations.
+- Created `docs/features/profile.md` to document the Profile module requirements, API, database, acceptance criteria, QA, and future improvements.
 
 ## Current Task
 
-Complete Phase 2 profile module on the `feature/profile-module` branch.
+Improve engineering process documentation on the `feature/engineering-guide` branch.
 
 ## Upcoming Tasks
 
-- Review and approve Phase 2 profile module.
-- Define initial domain models for resume generation and job tracking workflows.
 - Establish testing, linting, formatting, and CI standards.
+- Review and approve the engineering process documentation branch.
+- Define initial domain models for resume generation and job tracking workflows.
 
 ## Known Issues
 
@@ -107,3 +132,14 @@ Complete Phase 2 profile module on the `feature/profile-module` branch.
 - Updated `backend/requirements.txt` to explicitly include every direct backend dependency used by the project: FastAPI, Pydantic, SQLAlchemy, and Uvicorn.
 - Installed backend requirements and verified `uvicorn app.main:app --reload` starts successfully.
 - Verified `GET /health`, `GET /profile`, `POST /profile`, and `PUT /profile` are operational against the running backend.
+
+#### Engineering Process Documentation
+
+- Began engineering quality documentation work on the `feature/engineering-guide` branch.
+- Added `AI_ENGINEERING_GUIDE.md` as the permanent handbook for AI-assisted engineering sessions.
+- Added `QA_CHECKLIST.md` as a reusable validation checklist across backend, environment, frontend, database, documentation, Git, manual testing, and release readiness.
+- Added `CHANGELOG.md` with semantic version entries for repository setup, project documentation, application foundation, and the profile module.
+- Added `CONTRIBUTING.md` to document branch creation, pull requests, coding standards, documentation expectations, and review process.
+- Added `docs/features/profile.md` to document the Profile module.
+- Updated `DECISIONS.md` to record why engineering process documentation was introduced.
+- Ran a documentation review confirming the branch is documentation-only, Markdown whitespace checks pass, and status, decisions, changelog, contributing, QA, and feature documentation references are consistent.
