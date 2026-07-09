@@ -96,3 +96,14 @@ Complete Phase 2 profile module on the `feature/profile-module` branch.
 - Replaced the placeholder Profile page with an editable form for basic details, target roles, summary, education, work experience, skills, and projects.
 - Verified the frontend production build succeeds.
 - Verified the profile API returns 404 before creation, creates a profile with `POST /profile`, and updates it with `PUT /profile`.
+- Completed QA verification for the Phase 2 profile module before merge.
+- Verified the backend starts successfully, `GET /profile` returns an empty profile before creation, `POST /profile` creates a profile, `PUT /profile` updates it, SQLite tables are created, and no backend errors were observed.
+- Verified the frontend starts successfully, the Profile page loads, all required fields are visible, save and update work, saved data persists after browser refresh, and no browser console, page, or request errors were observed.
+- Fixed the minimum necessary QA issue where an empty profile loaded as a 404 response, causing browser console errors before the first save.
+
+#### Manual QA Fix
+
+- Diagnosed backend startup failure as missing dependencies in the Python interpreter used by manual QA; `sqlalchemy` was not installed there.
+- Updated `backend/requirements.txt` to explicitly include every direct backend dependency used by the project: FastAPI, Pydantic, SQLAlchemy, and Uvicorn.
+- Installed backend requirements and verified `uvicorn app.main:app --reload` starts successfully.
+- Verified `GET /health`, `GET /profile`, `POST /profile`, and `PUT /profile` are operational against the running backend.
