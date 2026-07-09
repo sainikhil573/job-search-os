@@ -103,6 +103,46 @@ Medium
 - Resume preview reflects saved data.
 - Basic validation is in place.
 
+### Release 0.5 / Sprint 2: Resume Studio MVP
+
+Status: Completed
+
+Completed:
+
+- Structured Resume Studio page.
+- Backend resume model, schemas, and API routes.
+- Resume create, save, update, and reload workflow.
+- Modular frontend resume section components.
+- Basic resume preview.
+- Documentation updates.
+- Manual QA passed.
+- Candidate Profile regression passed.
+
+Deferred:
+
+- AI resume optimization.
+- ATS scoring.
+- Resume export.
+- Resume versioning.
+- Resume templates.
+- Resume analytics.
+- Automated backend/frontend tests.
+
+### Sprint 2.5: Resume Studio Hardening
+
+Status: Current stabilization sprint
+
+Scope:
+
+- Backend compile verification.
+- Frontend production build verification.
+- Hidden Unicode scan.
+- Git hygiene check.
+- Documentation cleanup.
+- Manual QA evidence recorded.
+- Line-ending consistency configuration if missing.
+- Test coverage gaps identified.
+
 ## Phase 3: Job Tracker
 
 ### Goal
