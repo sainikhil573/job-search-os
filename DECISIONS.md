@@ -61,3 +61,13 @@ This log tracks major product, architecture, and workflow decisions for Job Sear
 - Reasoning: A useful MVP creates the data model, workflow clarity, and user trust required for effective AI automation later.
 - Consequences: Early phases will prioritize resume generation, job tracking, dashboard foundations, authentication, and stable data handling before advanced AI features.
 - Status: Accepted
+
+## 2026-07-09: Introduce engineering process documentation
+
+- Date: 2026-07-09
+- Decision: Add permanent engineering process documentation for AI-assisted development, QA, contribution workflow, changelog management, and feature documentation.
+- Context: Job Search OS is being built as a professional software product. The repository now has application foundation work and a profile module, so future work needs consistent standards for branch workflow, pull requests, validation, documentation updates, and release history.
+- Alternatives considered: Continue relying only on `DEVELOPMENT_RULES.md`, keep process expectations informal, defer process documentation until the project is larger.
+- Reasoning: AI-assisted coding sessions need explicit, durable operating instructions so each branch preserves context, avoids scope drift, validates changes consistently, and updates project records. Adding these documents early reduces review friction and makes the repository easier to maintain as more modules are added.
+- Consequences: Contributors and AI coding sessions should use `AI_ENGINEERING_GUIDE.md`, `QA_CHECKLIST.md`, and `CONTRIBUTING.md` before marking work complete. Merged feature history should be maintained in `CHANGELOG.md`, and feature-specific behavior should be documented under `docs/features/`.
+- Status: Accepted
