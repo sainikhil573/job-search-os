@@ -39,9 +39,7 @@ def apply_profile_payload(
 def read_profile(db: Session = Depends(get_db)):
     profile = get_existing_profile(db)
     if profile is None:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, detail="Profile not found"
-        )
+        return CandidateProfileRead()
     return profile
 
 

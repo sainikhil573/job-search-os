@@ -91,7 +91,7 @@ class CandidateProfileCreate(CandidateProfileBase):
 
 
 class CandidateProfileRead(CandidateProfileBase):
-    id: int
+    id: int | None = None
     education: list[EducationRead] = Field(default_factory=list)
     work_experience: list[WorkExperienceRead] = Field(default_factory=list)
     skills: list[SkillRead] = Field(default_factory=list)

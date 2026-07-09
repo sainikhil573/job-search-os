@@ -310,7 +310,7 @@ function Profile() {
 
         const data = await response.json();
         setProfile(sanitizeProfile(data));
-        setHasExistingProfile(true);
+        setHasExistingProfile(Boolean(data.id));
       } catch (error) {
         setMessage({ type: "error", text: error.message });
       } finally {
