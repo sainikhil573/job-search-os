@@ -77,6 +77,48 @@ Use this checklist before marking a branch ready for review. Not every item appl
 - [ ] Confirm `GET /api/resume`, `POST /api/resume`, and `PUT /api/resume/{resume_id}` return the expected payloads.
 - [ ] Confirm Candidate Profile pages and APIs still load after Resume Studio changes.
 
+## Manual QA Result - Resume Studio MVP
+
+- Backend started: Pass.
+- Frontend started: Pass.
+- Dashboard smoke test: Pass.
+- Candidate Profile regression: Pass.
+- Resume Studio page loads: Pass.
+- Create resume: Pass.
+- Save resume API: Pass.
+- Refresh persistence: Pass.
+- Update resume: Pass.
+- Second refresh persistence: Pass.
+- Navigation regression: Pass.
+- Browser console errors: No app-related errors.
+- Backend errors: No.
+- Hidden Unicode scan: Pass.
+- Frontend build: Pass.
+- Backend py_compile: Pass.
+
+Notes:
+
+- Chrome extension console errors were observed but confirmed unrelated to the application.
+- Resume data persisted after refresh.
+- Candidate Profile continued working after Resume Studio changes.
+
+## Sprint 2.5 Verification Results
+
+- Backend py_compile: Pass.
+- Frontend npm run build: Pass.
+- Hidden Unicode scan: Pass.
+- Git hygiene check: Pass.
+- Existing automated backend tests: Not available.
+- Existing automated frontend tests: Not available.
+- Manual QA status: Passed previously by Product Owner.
+
+Known technical debt:
+
+- Add backend endpoint tests for Resume API.
+- Add frontend component and smoke tests.
+- Consider cleaner API response field names instead of exposing `*_json`.
+- Consider normalized resume section tables when versioning or analytics require them.
+
 ## Release Readiness
 
 - [ ] The Definition of Done is satisfied.

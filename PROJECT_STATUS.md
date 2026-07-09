@@ -6,19 +6,19 @@ Job Search OS is a long-term product vision for an AI-powered operating system f
 
 ## Current Phase
 
-Phase 3: Resume Studio MVP
+Phase 3: Resume Studio stabilization
 
 ## Current Sprint
 
-Resume Studio Sprint 2A and 2B on the `feature/resume-studio` branch.
+Sprint 2.5: Resume Studio Hardening on the `feature/resume-studio-hardening` branch.
 
 ## Current Milestone
 
-Build the structured base resume foundation for create, edit, save, reload, and update workflows.
+Stabilize the completed Resume Studio MVP through documentation cleanup, verification checks, line-ending consistency, Git hygiene, and recorded QA evidence.
 
 ## Next Milestone
 
-Establish testing, linting, formatting, and CI standards for frontend and backend development.
+Establish automated backend and frontend test coverage for Resume Studio and broader product workflows.
 
 ## Recent Merges
 
@@ -26,6 +26,7 @@ Establish testing, linting, formatting, and CI standards for frontend and backen
 - `0.2.0` Project Documentation
 - `0.3.0` Application Foundation
 - `0.4.0` Profile Module
+- Release 0.5 / Sprint 2: Resume Studio MVP
 
 ## Architecture Decisions
 
@@ -68,16 +69,18 @@ Establish testing, linting, formatting, and CI standards for frontend and backen
 - Added Resume Studio components for summary, skills, experience, projects, education, certifications, and preview.
 - Added a frontend resume API service.
 - Created `docs/features/resume-studio.md` to document the Resume Studio MVP.
+- Completed Resume Studio MVP manual QA and Candidate Profile regression verification.
+- Added line-ending consistency configuration with `.gitattributes`.
+- Recorded Resume Studio hardening verification results and technical debt.
 
 ## Current Task
 
-Complete Resume Studio Sprint 2A and 2B on the `feature/resume-studio` branch.
+Complete Sprint 2.5: Resume Studio Hardening on the `feature/resume-studio-hardening` branch.
 
 ## Upcoming Tasks
 
-- Establish testing, linting, formatting, and CI standards.
-- Review and approve the engineering process documentation branch.
 - Add automated backend and frontend tests for Resume Studio.
+- Establish linting, formatting, and CI standards.
 - Define initial domain models for job tracking workflows.
 
 ## Known Issues
@@ -85,6 +88,55 @@ Complete Resume Studio Sprint 2A and 2B on the `feature/resume-studio` branch.
 - No authentication has been added yet.
 - No AI features have been added yet.
 - Resume Studio does not yet support AI optimization, ATS scoring, PDF/DOCX export, or multiple resume versions.
+- Resume Studio automated backend endpoint tests are not yet available.
+- Resume Studio frontend component and smoke tests are not yet available.
+- Resume Studio API response fields currently expose internal `*_json` names and should be revisited before AI optimization, versioning, or export.
+- Resume Studio section data may eventually need normalized tables when versioning, analytics, or richer querying require them.
+
+## Release 0.5 / Sprint 2: Resume Studio MVP
+
+Completed:
+
+- Structured Resume Studio page.
+- Backend resume model, schemas, and API routes.
+- Resume create, save, update, and reload workflow.
+- Modular frontend resume section components.
+- Basic resume preview.
+- Documentation updates.
+- Manual QA passed.
+- Candidate Profile regression passed.
+
+Deferred:
+
+- AI resume optimization.
+- ATS scoring.
+- Resume export.
+- Resume versioning.
+- Resume templates.
+- Resume analytics.
+- Automated backend/frontend tests.
+
+## Sprint 2.5: Resume Studio Hardening
+
+Scope:
+
+- Backend compile verification.
+- Frontend production build verification.
+- Hidden Unicode scan.
+- Git hygiene check.
+- Documentation cleanup.
+- Manual QA evidence recorded.
+- Line-ending consistency configuration.
+- Test coverage gaps identified.
+
+Verification results:
+
+- Backend py_compile: Pass.
+- Frontend npm run build: Pass.
+- Hidden Unicode scan: Pass.
+- Git hygiene check: Pass.
+- Existing automated tests: Not available.
+- Manual QA status: Passed previously by Product Owner.
 
 ## Future Features
 
@@ -162,3 +214,10 @@ Complete Resume Studio Sprint 2A and 2B on the `feature/resume-studio` branch.
 - Added frontend resume API service support for load, create, and update requests.
 - Documented the MVP scope, API contract, database shape, acceptance criteria, and manual QA steps in `docs/features/resume-studio.md`.
 - Recorded the decision to use structured JSON fields for the Resume Studio MVP.
+
+#### Resume Studio Hardening
+
+- Began Sprint 2.5 on the `feature/resume-studio-hardening` branch after Resume Studio MVP was merged to `main`.
+- Marked Release 0.5 / Sprint 2 Resume Studio MVP as complete in project tracking.
+- Added `.gitattributes` for repository line-ending consistency.
+- Recorded Sprint 2.5 verification scope, manual QA evidence, deferred work, and known technical debt.

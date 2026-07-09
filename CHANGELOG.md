@@ -6,6 +6,18 @@ This project uses semantic versioning. During the pre-1.0 phase, minor versions 
 
 ## [Unreleased]
 
+### Resume Studio Hardening
+
+#### Added
+
+- Added repository line-ending consistency configuration with `.gitattributes`.
+- Added Sprint 2.5 project tracking for Resume Studio hardening, verification, and known test coverage gaps.
+- Recorded Resume Studio MVP manual QA evidence and Candidate Profile regression results.
+
+#### Changed
+
+- Updated project status, roadmap, decisions, QA checklist, and Resume Studio feature documentation to mark Resume Studio MVP complete and document deferred work.
+
 ### Resume Studio MVP
 
 #### Added

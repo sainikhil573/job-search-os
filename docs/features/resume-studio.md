@@ -2,6 +2,8 @@
 
 The Resume Studio MVP gives a user one structured base resume that can be created, edited, saved, reloaded, and updated.
 
+Status: Release 0.5 / Sprint 2 MVP completed. Sprint 2.5 hardening is focused on stabilization, documentation cleanup, verification, and technical debt tracking.
+
 ## Scope
 
 Included in Sprint 2A and 2B:
@@ -18,6 +20,9 @@ Not included yet:
 - ATS scoring.
 - PDF or DOCX export.
 - Multiple resume versions.
+- Resume templates.
+- Resume analytics.
+- Automated backend and frontend tests.
 - Authentication or user ownership.
 
 ## Frontend
@@ -82,6 +87,8 @@ Fields:
 
 The section fields are JSON arrays of structured objects. This avoids a single unstructured text blob while keeping the MVP simpler than fully normalized resume section tables.
 
+The MVP API currently exposes internal section field names such as `skills_json`, `experience_json`, `projects_json`, `education_json`, and `certifications_json`. This is acceptable for the MVP, but cleaner external names such as `skills`, `experience`, `projects`, `education`, and `certifications` should be considered before AI optimization, versioning, or export workflows depend on the API contract.
+
 ## Acceptance Criteria
 
 - A new user can open Resume Studio without console errors.
@@ -113,6 +120,37 @@ The section fields are JSON arrays of structured objects. This avoids a single u
 16. Verify `GET /api/resume`, `POST /api/resume`, and `PUT /api/resume/{resume_id}` return expected status codes and payloads.
 17. Open the Profile page and confirm existing profile behavior still works.
 
+## Manual QA Result - Resume Studio MVP
+
+- Backend started: Pass.
+- Frontend started: Pass.
+- Dashboard smoke test: Pass.
+- Candidate Profile regression: Pass.
+- Resume Studio page loads: Pass.
+- Create resume: Pass.
+- Save resume API: Pass.
+- Refresh persistence: Pass.
+- Update resume: Pass.
+- Second refresh persistence: Pass.
+- Navigation regression: Pass.
+- Browser console errors: No app-related errors.
+- Backend errors: No.
+
+Notes:
+
+- Chrome extension console errors were observed but confirmed unrelated to the application.
+- Resume data persisted after refresh.
+- Candidate Profile continued working after Resume Studio changes.
+
+## Sprint 2.5 Verification
+
+- Backend py_compile: Pass.
+- Frontend npm run build: Pass.
+- Hidden Unicode scan: Pass.
+- Git hygiene check: Pass.
+- Existing automated backend tests: Not available.
+- Existing automated frontend tests: Not available.
+
 ## Future Improvements
 
 - Add automated backend tests for resume endpoints.
@@ -122,3 +160,6 @@ The section fields are JSON arrays of structured objects. This avoids a single u
 - Add ATS scoring.
 - Add PDF and DOCX export.
 - Add multiple resume versions.
+- Add resume templates.
+- Add resume analytics.
+- Consider normalized resume section tables when versioning or analytics require them.
