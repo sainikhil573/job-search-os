@@ -6,7 +6,7 @@ Job Search OS is a long-term product vision for an AI-powered operating system f
 
 ## Current Phase
 
-Phase 1: App Foundation
+Phase 2: Profile Module
 
 ## Architecture Decisions
 
@@ -30,22 +30,27 @@ Phase 1: App Foundation
 - Created the initial FastAPI backend application skeleton.
 - Added SQLAlchemy and SQLite configuration.
 - Added `GET /health` backend health check endpoint.
+- Created SQLAlchemy models for candidate profiles, education, work experience, skills, and projects.
+- Added Pydantic schemas for profile create/read API payloads.
+- Added `GET /profile`, `POST /profile`, and `PUT /profile` backend endpoints.
+- Built the Profile page form with save/update support for core candidate details, education, work experience, skills, and projects.
+- Added basic Profile page success and error messaging.
 
 ## Current Task
 
-Complete Phase 1 app foundation on the `feature/app-foundation` branch.
+Complete Phase 2 profile module on the `feature/profile-module` branch.
 
 ## Upcoming Tasks
 
-- Review and approve Phase 1 app foundation.
-- Define initial domain models for resume and job tracking workflows.
+- Review and approve Phase 2 profile module.
+- Define initial domain models for resume generation and job tracking workflows.
 - Establish testing, linting, formatting, and CI standards.
 
 ## Known Issues
 
 - No authentication has been added yet.
-- No database schema has been designed yet.
 - No AI features have been added yet.
+- Resume generation has not been built yet.
 
 ## Future Features
 
@@ -81,3 +86,13 @@ Complete Phase 1 app foundation on the `feature/app-foundation` branch.
 - Fixed frontend startup by adding explicit Vite configuration with the React plugin and port `5173`.
 - Verified the frontend dev server starts at `http://localhost:5173/`.
 - Verified the backend health check returns `{"status":"ok"}` at `http://127.0.0.1:8000/health`.
+
+### 2026-07-09
+
+- Began Phase 2 profile module on the `feature/profile-module` branch.
+- Added SQLite-backed profile models for candidate details, education, work experience, skills, and projects.
+- Added Pydantic schemas and profile API routes for reading, creating, and updating the MVP candidate profile.
+- Added local frontend-to-backend CORS support for the Vite development server.
+- Replaced the placeholder Profile page with an editable form for basic details, target roles, summary, education, work experience, skills, and projects.
+- Verified the frontend production build succeeds.
+- Verified the profile API returns 404 before creation, creates a profile with `POST /profile`, and updates it with `PUT /profile`.
