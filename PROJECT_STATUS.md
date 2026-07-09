@@ -78,3 +78,6 @@ Complete Phase 1 app foundation on the `feature/app-foundation` branch.
 - Added a runnable FastAPI backend in `backend/`.
 - Added SQLAlchemy SQLite configuration and a `GET /health` endpoint.
 - Updated `README.md` with local setup instructions.
+- Fixed frontend startup by adding explicit Vite configuration with the React plugin and port `5173`.
+- Verified the frontend dev server starts at `http://localhost:5173/`.
+- Verified the backend health check returns `{"status":"ok"}` at `http://127.0.0.1:8000/health`.
