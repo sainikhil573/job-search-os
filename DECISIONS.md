@@ -71,3 +71,13 @@ This log tracks major product, architecture, and workflow decisions for Job Sear
 - Reasoning: AI-assisted coding sessions need explicit, durable operating instructions so each branch preserves context, avoids scope drift, validates changes consistently, and updates project records. Adding these documents early reduces review friction and makes the repository easier to maintain as more modules are added.
 - Consequences: Contributors and AI coding sessions should use `AI_ENGINEERING_GUIDE.md`, `QA_CHECKLIST.md`, and `CONTRIBUTING.md` before marking work complete. Merged feature history should be maintained in `CHANGELOG.md`, and feature-specific behavior should be documented under `docs/features/`.
 - Status: Accepted
+
+## 2026-07-09: Store Resume Studio MVP content in structured JSON fields
+
+- Date: 2026-07-09
+- Decision: Store the Resume Studio MVP base resume as one `resumes` record with major resume sections persisted in structured JSON fields.
+- Context: Sprint 2A and 2B need a usable Resume Studio foundation before AI optimization, ATS scoring, document export, or multiple resume versions are introduced.
+- Alternatives considered: Store the entire resume as one text blob, fully normalize every resume section into separate tables, build resume versioning immediately.
+- Reasoning: A text blob would make future editing, previewing, AI suggestions, and section-level updates harder. Fully normalized tables and versioning are more structure than the MVP currently needs. JSON section fields preserve structured content while keeping the first base-resume workflow small and easy to extend.
+- Consequences: The API exposes section arrays such as `skills_json`, `experience_json`, `projects_json`, `education_json`, and `certifications_json`. Future work can migrate specific sections into relational tables or add version records if product needs require it.
+- Status: Accepted

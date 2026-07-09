@@ -65,6 +65,18 @@ Use this checklist before marking a branch ready for review. Not every item appl
 - [ ] Browser console and server logs were reviewed.
 - [ ] Manual QA results were recorded in project documentation or the pull request.
 
+## Resume Studio Manual QA
+
+- [ ] Open the Resume Studio page from the existing navigation.
+- [ ] Confirm an empty base resume form loads before first save.
+- [ ] Enter title, target role, professional summary, skills, experience, projects, education, and certifications.
+- [ ] Save the resume and confirm success messaging.
+- [ ] Refresh the page and confirm the saved resume data still appears.
+- [ ] Edit at least one top-level field and one repeatable section item.
+- [ ] Save updates, refresh again, and confirm the updated data persists.
+- [ ] Confirm `GET /api/resume`, `POST /api/resume`, and `PUT /api/resume/{resume_id}` return the expected payloads.
+- [ ] Confirm Candidate Profile pages and APIs still load after Resume Studio changes.
+
 ## Release Readiness
 
 - [ ] The Definition of Done is satisfied.

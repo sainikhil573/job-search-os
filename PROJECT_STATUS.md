@@ -6,15 +6,15 @@ Job Search OS is a long-term product vision for an AI-powered operating system f
 
 ## Current Phase
 
-Phase 2: Profile Module
+Phase 3: Resume Studio MVP
 
 ## Current Sprint
 
-Engineering quality and process documentation on the `feature/engineering-guide` branch.
+Resume Studio Sprint 2A and 2B on the `feature/resume-studio` branch.
 
 ## Current Milestone
 
-Establish the permanent engineering handbook, QA checklist, contribution workflow, changelog, and feature documentation standards.
+Build the structured base resume foundation for create, edit, save, reload, and update workflows.
 
 ## Next Milestone
 
@@ -35,6 +35,7 @@ Establish testing, linting, formatting, and CI standards for frontend and backen
 - Project history will be preserved in this file through chronological append-only updates.
 - Major product, architecture, and workflow decisions will be tracked in `DECISIONS.md`.
 - Engineering process, QA, contribution, and changelog standards will be maintained as first-class project documentation.
+- Resume Studio MVP content is stored structurally in JSON section fields rather than as one resume text blob.
 
 ## Completed Tasks
 
@@ -60,22 +61,30 @@ Establish testing, linting, formatting, and CI standards for frontend and backen
 - Created `CHANGELOG.md` using semantic versioning for merged feature history.
 - Created `CONTRIBUTING.md` for branch, pull request, coding, documentation, and review expectations.
 - Created `docs/features/profile.md` to document the Profile module requirements, API, database, acceptance criteria, QA, and future improvements.
+- Added the `Resume` SQLAlchemy model for one structured base resume.
+- Added Resume Studio Pydantic create, update, and response schemas.
+- Added `GET /api/resume`, `POST /api/resume`, and `PUT /api/resume/{resume_id}` backend endpoints.
+- Replaced the Resume Studio placeholder with a modular create/edit/update frontend workflow.
+- Added Resume Studio components for summary, skills, experience, projects, education, certifications, and preview.
+- Added a frontend resume API service.
+- Created `docs/features/resume-studio.md` to document the Resume Studio MVP.
 
 ## Current Task
 
-Improve engineering process documentation on the `feature/engineering-guide` branch.
+Complete Resume Studio Sprint 2A and 2B on the `feature/resume-studio` branch.
 
 ## Upcoming Tasks
 
 - Establish testing, linting, formatting, and CI standards.
 - Review and approve the engineering process documentation branch.
-- Define initial domain models for resume generation and job tracking workflows.
+- Add automated backend and frontend tests for Resume Studio.
+- Define initial domain models for job tracking workflows.
 
 ## Known Issues
 
 - No authentication has been added yet.
 - No AI features have been added yet.
-- Resume generation has not been built yet.
+- Resume Studio does not yet support AI optimization, ATS scoring, PDF/DOCX export, or multiple resume versions.
 
 ## Future Features
 
@@ -143,3 +152,13 @@ Improve engineering process documentation on the `feature/engineering-guide` bra
 - Added `docs/features/profile.md` to document the Profile module.
 - Updated `DECISIONS.md` to record why engineering process documentation was introduced.
 - Ran a documentation review confirming the branch is documentation-only, Markdown whitespace checks pass, and status, decisions, changelog, contributing, QA, and feature documentation references are consistent.
+
+#### Resume Studio MVP
+
+- Began Resume Studio Sprint 2A and 2B on the `feature/resume-studio` branch.
+- Added a SQLite-backed `resumes` table with title, target role, professional summary, structured JSON section fields, and timestamps.
+- Added Resume Studio API schemas and endpoints for reading, creating, and updating one base resume.
+- Replaced the placeholder Resume Studio page with a modular form and live preview.
+- Added frontend resume API service support for load, create, and update requests.
+- Documented the MVP scope, API contract, database shape, acceptance criteria, and manual QA steps in `docs/features/resume-studio.md`.
+- Recorded the decision to use structured JSON fields for the Resume Studio MVP.

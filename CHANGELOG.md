@@ -4,6 +4,18 @@ All notable merged features for Job Search OS are recorded here.
 
 This project uses semantic versioning. During the pre-1.0 phase, minor versions represent meaningful repository, documentation, foundation, and product milestones.
 
+## [Unreleased]
+
+### Resume Studio MVP
+
+#### Added
+
+- Added a structured base resume model with JSON-backed resume sections for summary, skills, experience, projects, education, and certifications.
+- Added `GET /api/resume`, `POST /api/resume`, and `PUT /api/resume/{resume_id}` API endpoints.
+- Added the Resume Studio frontend workflow for creating, editing, saving, reloading, and updating one base resume.
+- Added modular Resume Studio components under `frontend/src/components/resume/`.
+- Added Resume Studio feature documentation and manual QA coverage.
+
 ## [0.4.0] - 2026-07-09
 
 ### Profile Module
