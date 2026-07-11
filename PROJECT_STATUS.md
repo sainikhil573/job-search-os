@@ -6,19 +6,19 @@ Job Search OS is a long-term product vision for an AI-powered operating system f
 
 ## Current Phase
 
-Phase 3: Resume Studio stabilization
+Phase 3: Job Tracker MVP
 
 ## Current Sprint
 
-Sprint 2.5: Resume Studio Hardening on the `feature/resume-studio-hardening` branch.
+Sprint 3: Job Tracker MVP on the `feature/job-tracker-mvp` branch.
 
 ## Current Milestone
 
-Stabilize the completed Resume Studio MVP through documentation cleanup, verification checks, line-ending consistency, Git hygiene, and recorded QA evidence.
+Build the manual Job Tracker foundation for creating, viewing, editing, status-updating, archiving, unarchiving, and persisting job records.
 
 ## Next Milestone
 
-Establish automated backend and frontend test coverage for Resume Studio and broader product workflows.
+Complete Product Owner manual QA for Job Tracker MVP and then establish automated backend and frontend test coverage for core workflows.
 
 ## Recent Merges
 
@@ -27,6 +27,7 @@ Establish automated backend and frontend test coverage for Resume Studio and bro
 - `0.3.0` Application Foundation
 - `0.4.0` Profile Module
 - Release 0.5 / Sprint 2: Resume Studio MVP
+- Sprint 2.5: Resume Studio Hardening
 
 ## Architecture Decisions
 
@@ -37,6 +38,7 @@ Establish automated backend and frontend test coverage for Resume Studio and bro
 - Major product, architecture, and workflow decisions will be tracked in `DECISIONS.md`.
 - Engineering process, QA, contribution, and changelog standards will be maintained as first-class project documentation.
 - Resume Studio MVP content is stored structurally in JSON section fields rather than as one resume text blob.
+- Job Tracker MVP uses one normalized `job_applications` table with archive-first deletion.
 
 ## Completed Tasks
 
@@ -72,16 +74,23 @@ Establish automated backend and frontend test coverage for Resume Studio and bro
 - Completed Resume Studio MVP manual QA and Candidate Profile regression verification.
 - Added line-ending consistency configuration with `.gitattributes`.
 - Recorded Resume Studio hardening verification results and technical debt.
+- Added the `JobApplication` SQLAlchemy model for manual job tracking.
+- Added Job Tracker Pydantic create, update, status update, archive update, and response schemas.
+- Added `GET /api/jobs`, `GET /api/jobs/{job_id}`, `POST /api/jobs`, `PUT /api/jobs/{job_id}`, `PATCH /api/jobs/{job_id}/status`, and `PATCH /api/jobs/{job_id}/archive` backend endpoints.
+- Replaced the Job Tracker placeholder with a modular frontend workflow for creating, viewing, editing, status-updating, archiving, and unarchiving jobs.
+- Added frontend Job Tracker components and API service.
+- Created `docs/features/job-tracker.md` to document the Job Tracker MVP.
 
 ## Current Task
 
-Complete Sprint 2.5: Resume Studio Hardening on the `feature/resume-studio-hardening` branch.
+Complete Sprint 3: Job Tracker MVP on the `feature/job-tracker-mvp` branch.
 
 ## Upcoming Tasks
 
-- Add automated backend and frontend tests for Resume Studio.
+- Complete Product Owner manual QA for Job Tracker MVP.
+- Add automated backend and frontend tests for Job Tracker and Resume Studio.
 - Establish linting, formatting, and CI standards.
-- Define initial domain models for job tracking workflows.
+- Add richer Job Tracker search and filtering after MVP review.
 
 ## Known Issues
 
@@ -92,6 +101,9 @@ Complete Sprint 2.5: Resume Studio Hardening on the `feature/resume-studio-harde
 - Resume Studio frontend component and smoke tests are not yet available.
 - Resume Studio API response fields currently expose internal `*_json` names and should be revisited before AI optimization, versioning, or export.
 - Resume Studio section data may eventually need normalized tables when versioning, analytics, or richer querying require them.
+- Job Tracker automated backend endpoint tests are not yet available.
+- Job Tracker frontend component and workflow tests are not yet available.
+- Job Tracker does not yet include authentication, user ownership, status history, reminders, recruiter CRM, interview tracking, analytics, or AI matching.
 
 ## Release 0.5 / Sprint 2: Resume Studio MVP
 
@@ -137,6 +149,54 @@ Verification results:
 - Git hygiene check: Pass.
 - Existing automated tests: Not available.
 - Manual QA status: Passed previously by Product Owner.
+
+## Sprint 3: Job Tracker MVP
+
+Scope:
+
+- Create job records.
+- View active jobs.
+- Edit job records.
+- Update job status.
+- Archive and unarchive jobs.
+- Persist jobs in SQLite.
+- Provide basic loading, empty, success, and error states.
+- Update documentation and QA checklist.
+
+Implemented:
+
+- SQLite-backed `job_applications` table.
+- Job Tracker API routes under `/api/jobs`.
+- Status validation for `saved`, `applied`, `interviewing`, `offer`, and `rejected`.
+- Required company and job title validation trims surrounding whitespace and rejects blank-after-trim values.
+- Archive-first deletion behavior through an `archived` boolean.
+- Modular Job Tracker frontend page, components, defaults, and API service.
+- Optional archived-job visibility and unarchive workflow.
+
+Deferred:
+
+- AI job matching.
+- AI resume tailoring.
+- ATS scoring.
+- Auto-apply.
+- Recruiter CRM.
+- Interview tracker.
+- Email parsing.
+- Chrome extension.
+- Analytics dashboard.
+- Job scraping.
+- Automated reminders.
+- Resume-job comparison.
+- Dashboard count integration.
+
+Codex verification results:
+
+- Backend py_compile: Pass.
+- Frontend npm run build: Pass.
+- Isolated FastAPI TestClient validation smoke checks: Pass.
+- Existing automated backend tests: Not available.
+- Existing automated frontend tests: Not available.
+- Product Owner manual QA: Not yet performed.
 
 ## Future Features
 
@@ -221,3 +281,16 @@ Verification results:
 - Marked Release 0.5 / Sprint 2 Resume Studio MVP as complete in project tracking.
 - Added `.gitattributes` for repository line-ending consistency.
 - Recorded Sprint 2.5 verification scope, manual QA evidence, deferred work, and known technical debt.
+
+### 2026-07-11
+
+#### Job Tracker MVP
+
+- Began Sprint 3 Job Tracker MVP on the `feature/job-tracker-mvp` branch.
+- Added a SQLite-backed `job_applications` table for manual job tracking.
+- Added Job Tracker schemas and API routes for listing, reading, creating, updating, status updates, and archive updates.
+- Replaced the Job Tracker placeholder with a modular create/edit/list/status/archive frontend workflow.
+- Added optional archived-job visibility and unarchive support.
+- Fixed required company and job title validation to trim surrounding whitespace and reject blank-after-trim values.
+- Documented the Job Tracker MVP scope, API contract, database decision, manual QA steps, deferred work, and future improvements.
+- Verified backend Python compilation, isolated FastAPI validation smoke checks, and frontend production build.

@@ -6,6 +6,20 @@ This project uses semantic versioning. During the pre-1.0 phase, minor versions 
 
 ## [Unreleased]
 
+### Job Tracker MVP
+
+#### Added
+
+- Added a SQLite-backed `job_applications` table for manual job tracking.
+- Added `GET /api/jobs`, `GET /api/jobs/{job_id}`, `POST /api/jobs`, `PUT /api/jobs/{job_id}`, `PATCH /api/jobs/{job_id}/status`, and `PATCH /api/jobs/{job_id}/archive` API endpoints.
+- Added the Job Tracker frontend workflow for creating, viewing, editing, status-updating, archiving, unarchiving, and reloading jobs.
+- Added modular Job Tracker components under `frontend/src/components/jobs/`.
+- Added Job Tracker feature documentation and manual QA coverage.
+
+#### Fixed
+
+- Fixed Job Tracker API validation so required company and job title values are trimmed and blank-after-trim values are rejected.
+
 ### Resume Studio Hardening
 
 #### Added

@@ -130,7 +130,7 @@ Deferred:
 
 ### Sprint 2.5: Resume Studio Hardening
 
-Status: Current stabilization sprint
+Status: Completed
 
 Scope:
 
@@ -142,6 +142,35 @@ Scope:
 - Manual QA evidence recorded.
 - Line-ending consistency configuration if missing.
 - Test coverage gaps identified.
+
+### Sprint 3: Job Tracker MVP
+
+Status: Implemented on `feature/job-tracker-mvp`; pending review and Product Owner manual QA.
+
+Scope:
+
+- Create job records.
+- View saved jobs.
+- Edit job records.
+- Update job status.
+- Archive and unarchive jobs.
+- Persist jobs in SQLite.
+- Provide basic loading, empty, success, and error states.
+- Document the feature and manual QA checklist.
+
+Deferred:
+
+- AI job matching.
+- AI resume tailoring.
+- ATS scoring.
+- Auto-apply.
+- Recruiter CRM.
+- Interview tracker.
+- Analytics dashboard.
+- Job scraping.
+- Automated reminders.
+- Resume-job comparison.
+- Dashboard count integration.
 
 ## Phase 3: Job Tracker
 

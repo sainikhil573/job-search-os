@@ -1,0 +1,114 @@
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "http://127.0.0.1:8000";
+
+const JOBS_ENDPOINT = `${API_BASE_URL}/api/jobs`;
+
+const validationFieldLabels = {
+  company_name: "Company",
+  job_title: "Job title",
+};
+
+function formatValidationDetail(detail, fallbackMessage) {
+  if (typeof detail === "string") {
+    return detail;
+  }
+
+  if (Array.isArray(detail)) {
+    const messages = detail
+      .map((item) => {
+        if (typeof item === "string") {
+          return item;
+        }
+
+        const fieldName = Array.isArray(item?.loc) ? item.loc.at(-1) : null;
+        const fieldLabel = validationFieldLabels[fieldName] ?? fieldName;
+        const message = item?.msg ?? "Invalid value.";
+
+        if (fieldName && fieldLabel) {
+          return `${fieldLabel}: ${message}`;
+        }
+
+        return message;
+      })
+      .filter(Boolean);
+
+    return messages.length > 0 ? messages.join(" ") : fallbackMessage;
+  }
+
+  if (detail && typeof detail === "object" && typeof detail.msg === "string") {
+    return detail.msg;
+  }
+
+  return fallbackMessage;
+}
+
+async function parseApiError(response, fallbackMessage) {
+  const errorData = await response.json().catch(() => null);
+  return new Error(formatValidationDetail(errorData?.detail, fallbackMessage));
+}
+
+export async function fetchJobs({ includeArchived = false } = {}) {
+  const query = includeArchived ? "?include_archived=true" : "";
+  const response = await fetch(`${JOBS_ENDPOINT}${query}`);
+
+  if (!response.ok) {
+    throw await parseApiError(response, "Unable to load jobs.");
+  }
+
+  return response.json();
+}
+
+export async function createJob(payload) {
+  const response = await fetch(JOBS_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+
+  if (!response.ok) {
+    throw await parseApiError(response, "Unable to save job.");
+  }
+
+  return response.json();
+}
+
+export async function updateJob(jobId, payload) {
+  const response = await fetch(`${JOBS_ENDPOINT}/${jobId}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+
+  if (!response.ok) {
+    throw await parseApiError(response, "Unable to update job.");
+  }
+
+  return response.json();
+}
+
+export async function updateJobStatus(jobId, status) {
+  const response = await fetch(`${JOBS_ENDPOINT}/${jobId}/status`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ status }),
+  });
+
+  if (!response.ok) {
+    throw await parseApiError(response, "Unable to update job status.");
+  }
+
+  return response.json();
+}
+
+export async function updateJobArchive(jobId, archived) {
+  const response = await fetch(`${JOBS_ENDPOINT}/${jobId}/archive`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ archived }),
+  });
+
+  if (!response.ok) {
+    throw await parseApiError(response, "Unable to update archive status.");
+  }
+
+  return response.json();
+}
