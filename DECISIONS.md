@@ -81,3 +81,13 @@ This log tracks major product, architecture, and workflow decisions for Job Sear
 - Reasoning: A text blob would make future editing, previewing, AI suggestions, and section-level updates harder. Fully normalized tables and versioning are more structure than the MVP currently needs. JSON section fields preserve structured content while keeping the first base-resume workflow small and easy to extend.
 - Consequences: The API exposes section arrays such as `skills_json`, `experience_json`, `projects_json`, `education_json`, and `certifications_json`. This is acceptable for the MVP, but the external API contract should be revisited before AI optimization, versioning, or export work. Future work may map these fields to cleaner response names such as `skills`, `experience`, `projects`, `education`, and `certifications`, and can migrate specific sections into relational tables or add version records if product needs require it.
 - Status: Accepted
+
+## 2026-07-11: Use one job applications table with archive-first deletion
+
+- Date: 2026-07-11
+- Decision: Job Tracker MVP uses one normalized `job_applications` table with archive-first deletion.
+- Context: Sprint 3 needs a manual job tracking foundation that can support later AI job matching, job-specific resume generation, recruiter CRM, interview tracking, and analytics without building those advanced workflows yet.
+- Alternatives considered: Fully normalize companies and contacts immediately, add status history records immediately, hard-delete jobs, store jobs as unstructured JSON.
+- Reasoning: One job application table keeps the MVP simple while preserving future extensibility. An `archived` boolean protects job-search history better than hard deletion and keeps archived records available for later analytics or restoration.
+- Consequences: Company/contact normalization, status history, reminders, interviews, and AI matching are deferred. Future sprints can add related tables that reference `job_applications.id`.
+- Status: Accepted

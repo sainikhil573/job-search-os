@@ -77,6 +77,29 @@ Use this checklist before marking a branch ready for review. Not every item appl
 - [ ] Confirm `GET /api/resume`, `POST /api/resume`, and `PUT /api/resume/{resume_id}` return the expected payloads.
 - [ ] Confirm Candidate Profile pages and APIs still load after Resume Studio changes.
 
+## Job Tracker Manual QA
+
+- [ ] Backend starts successfully.
+- [ ] Frontend starts successfully.
+- [ ] Dashboard still loads.
+- [ ] Candidate Profile still loads and saves.
+- [ ] Resume Studio still loads and persists data.
+- [ ] Job Tracker page loads.
+- [ ] Empty state appears when no jobs exist.
+- [ ] Create a job with company and job title.
+- [ ] Save the job and confirm it appears in the list.
+- [ ] Refresh the page and confirm the job persists.
+- [ ] Edit the job.
+- [ ] Refresh and confirm updated data persists.
+- [ ] Change job status.
+- [ ] Refresh and confirm status persists.
+- [ ] Archive the job.
+- [ ] Confirm the archived job disappears from the active list.
+- [ ] Enable archived jobs and confirm the archived job can be seen.
+- [ ] Unarchive the job.
+- [ ] Confirm no app-related console errors.
+- [ ] Confirm no backend tracebacks.
+
 ## Manual QA Result - Resume Studio MVP
 
 - Backend started: Pass.
@@ -118,6 +141,24 @@ Known technical debt:
 - Add frontend component and smoke tests.
 - Consider cleaner API response field names instead of exposing `*_json`.
 - Consider normalized resume section tables when versioning or analytics require them.
+
+## Sprint 3 Job Tracker MVP Verification Results
+
+- Backend py_compile: Pass.
+- Frontend npm run build: Pass.
+- Hidden Unicode scan: Pass.
+- Git hygiene check: Pass.
+- Existing automated backend tests: Not available.
+- Existing automated frontend tests: Not available.
+
+Known technical debt:
+
+- Add backend endpoint tests for Job Tracker API.
+- Add frontend component and workflow tests.
+- Add authentication and job ownership.
+- Add richer search and filtering.
+- Add status history when analytics or audit needs require it.
+- Add related recruiter, contact, interview, reminder, and AI matching tables in future scoped sprints.
 
 ## Release Readiness
 
