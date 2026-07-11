@@ -9,7 +9,7 @@ function JobFilters({ includeArchived, onIncludeArchivedChange }) {
           onChange={(event) => onIncludeArchivedChange(event.target.checked)}
           type="checkbox"
         />
-        Show archived
+        Include archived jobs
       </label>
     </div>
   );

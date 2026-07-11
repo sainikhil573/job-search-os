@@ -45,6 +45,8 @@ Frontend code is organized under:
 
 The page loads jobs on mount, creates jobs with `POST /api/jobs`, updates details with `PUT /api/jobs/{job_id}`, updates status with `PATCH /api/jobs/{job_id}/status`, and archives or unarchives jobs with `PATCH /api/jobs/{job_id}/archive`.
 
+The frontend trims `company_name` and `job_title` before submission. Blank or whitespace-only required values show a validation error, do not call the API, preserve the form data for correction, and do not show a success message.
+
 ## API
 
 Base resource: `/api/jobs`
@@ -163,7 +165,7 @@ The MVP uses one normalized job application table and archive-first deletion. Th
 - Updated status persists after browser refresh.
 - A user can archive a job.
 - Archived jobs disappear from the active list.
-- A user can show archived jobs.
+- A user can include archived jobs alongside active jobs.
 - A user can unarchive a job.
 - Candidate Profile and Resume Studio continue to work.
 
@@ -178,19 +180,22 @@ Recommended manual QA:
 5. Open Resume Studio and confirm it loads and persists data.
 6. Open Job Tracker.
 7. Confirm the empty state appears when no jobs exist.
-8. Create a job with company and job title.
-9. Confirm the saved job appears in the list.
-10. Refresh the browser and confirm the job persists.
-11. Edit the job.
-12. Refresh and confirm updated data persists.
-13. Change job status.
-14. Refresh and confirm the status persists.
-15. Archive the job.
-16. Confirm the archived job disappears from the active list.
-17. Enable archived jobs and confirm the archived job appears.
-18. Unarchive the job and confirm it returns to the active list.
-19. Confirm no app-related browser console errors.
-20. Confirm no backend tracebacks.
+8. Try blank or whitespace-only required fields on create and confirm a validation error appears with no success message.
+9. Create a job with company and job title.
+10. Confirm the saved job appears in the list.
+11. Refresh the browser and confirm the job persists.
+12. Edit the job.
+13. Try blank or whitespace-only required fields on update and confirm the original listed job remains unchanged.
+14. Correct the fields and confirm the updated details persist after refresh.
+15. Change job status.
+16. Refresh and confirm the status persists.
+17. Archive the job.
+18. Confirm the archived job disappears from the active list.
+19. Confirm the checkbox reads "Include archived jobs."
+20. Enable "Include archived jobs" and confirm active and archived jobs appear.
+21. Unarchive the job and confirm it returns to the active list.
+22. Confirm no app-related browser console errors.
+23. Confirm no backend tracebacks.
 
 ## Codex Verification
 

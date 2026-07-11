@@ -86,7 +86,8 @@ Use this checklist before marking a branch ready for review. Not every item appl
 - [ ] Resume Studio still loads and persists data.
 - [ ] Job Tracker page loads.
 - [ ] Empty state appears when no jobs exist.
-- [ ] Confirm blank or whitespace-only company and job title values are rejected.
+- [ ] Confirm blank or whitespace-only company and job title values show a validation error with no success message.
+- [ ] Confirm invalid create/update attempts preserve the entered form data and do not mutate existing jobs.
 - [ ] Create a job with company and job title.
 - [ ] Save the job and confirm it appears in the list.
 - [ ] Refresh the page and confirm the job persists.
@@ -96,7 +97,8 @@ Use this checklist before marking a branch ready for review. Not every item appl
 - [ ] Refresh and confirm status persists.
 - [ ] Archive the job.
 - [ ] Confirm the archived job disappears from the active list.
-- [ ] Enable archived jobs and confirm the archived job can be seen.
+- [ ] Confirm the archive filter reads "Include archived jobs."
+- [ ] Enable "Include archived jobs" and confirm active and archived jobs can be seen.
 - [ ] Unarchive the job.
 - [ ] Confirm no app-related console errors.
 - [ ] Confirm no backend tracebacks.
@@ -147,6 +149,8 @@ Known technical debt:
 
 - Backend py_compile: Pass.
 - Frontend npm run build: Pass.
+- Invalid create/update feedback behavior: Pass.
+- Archive filter wording clarified to "Include archived jobs": Pass.
 - Hidden Unicode scan: Pass.
 - Git hygiene check: Pass.
 - Existing automated backend tests: Not available.

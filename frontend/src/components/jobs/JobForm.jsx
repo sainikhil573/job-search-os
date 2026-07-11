@@ -75,7 +75,11 @@ function JobForm({
   onSubmit,
 }) {
   return (
-    <form className="space-y-5 rounded-lg border border-zinc-200 bg-white p-5" onSubmit={onSubmit}>
+    <form
+      className="space-y-5 rounded-lg border border-zinc-200 bg-white p-5"
+      noValidate
+      onSubmit={onSubmit}
+    >
       <div className="flex flex-wrap items-start justify-between gap-3 border-b border-zinc-200 pb-3">
         <div>
           <h3 className="text-lg font-semibold text-zinc-950">

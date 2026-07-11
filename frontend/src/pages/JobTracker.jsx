@@ -61,11 +61,16 @@ function JobTracker() {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    const payload = buildJobPayload(formJob);
+
+    if (!payload.company_name || !payload.job_title) {
+      setMessage({ type: "error", text: "Company and job title are required." });
+      return;
+    }
+
     setIsSaving(true);
     setMessage(null);
-
     try {
-      const payload = buildJobPayload(formJob);
       const savedJob = isEditing
         ? await updateJob(editingJobId, payload)
         : await createJob(payload);

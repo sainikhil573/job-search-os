@@ -2,9 +2,48 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "http://127.0.0.1:8000
 
 const JOBS_ENDPOINT = `${API_BASE_URL}/api/jobs`;
 
+const validationFieldLabels = {
+  company_name: "Company",
+  job_title: "Job title",
+};
+
+function formatValidationDetail(detail, fallbackMessage) {
+  if (typeof detail === "string") {
+    return detail;
+  }
+
+  if (Array.isArray(detail)) {
+    const messages = detail
+      .map((item) => {
+        if (typeof item === "string") {
+          return item;
+        }
+
+        const fieldName = Array.isArray(item?.loc) ? item.loc.at(-1) : null;
+        const fieldLabel = validationFieldLabels[fieldName] ?? fieldName;
+        const message = item?.msg ?? "Invalid value.";
+
+        if (fieldName && fieldLabel) {
+          return `${fieldLabel}: ${message}`;
+        }
+
+        return message;
+      })
+      .filter(Boolean);
+
+    return messages.length > 0 ? messages.join(" ") : fallbackMessage;
+  }
+
+  if (detail && typeof detail === "object" && typeof detail.msg === "string") {
+    return detail.msg;
+  }
+
+  return fallbackMessage;
+}
+
 async function parseApiError(response, fallbackMessage) {
   const errorData = await response.json().catch(() => null);
-  return new Error(errorData?.detail ?? fallbackMessage);
+  return new Error(formatValidationDetail(errorData?.detail, fallbackMessage));
 }
 
 export async function fetchJobs({ includeArchived = false } = {}) {
