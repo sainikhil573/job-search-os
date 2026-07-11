@@ -168,6 +168,7 @@ Implemented:
 - SQLite-backed `job_applications` table.
 - Job Tracker API routes under `/api/jobs`.
 - Status validation for `saved`, `applied`, `interviewing`, `offer`, and `rejected`.
+- Required company and job title validation trims surrounding whitespace and rejects blank-after-trim values.
 - Archive-first deletion behavior through an `archived` boolean.
 - Modular Job Tracker frontend page, components, defaults, and API service.
 - Optional archived-job visibility and unarchive workflow.
@@ -192,6 +193,7 @@ Codex verification results:
 
 - Backend py_compile: Pass.
 - Frontend npm run build: Pass.
+- Isolated FastAPI TestClient validation smoke checks: Pass.
 - Existing automated backend tests: Not available.
 - Existing automated frontend tests: Not available.
 - Product Owner manual QA: Not yet performed.
@@ -289,5 +291,6 @@ Codex verification results:
 - Added Job Tracker schemas and API routes for listing, reading, creating, updating, status updates, and archive updates.
 - Replaced the Job Tracker placeholder with a modular create/edit/list/status/archive frontend workflow.
 - Added optional archived-job visibility and unarchive support.
+- Fixed required company and job title validation to trim surrounding whitespace and reject blank-after-trim values.
 - Documented the Job Tracker MVP scope, API contract, database decision, manual QA steps, deferred work, and future improvements.
-- Verified backend Python compilation and frontend production build.
+- Verified backend Python compilation, isolated FastAPI validation smoke checks, and frontend production build.

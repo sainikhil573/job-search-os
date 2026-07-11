@@ -86,6 +86,7 @@ Use this checklist before marking a branch ready for review. Not every item appl
 - [ ] Resume Studio still loads and persists data.
 - [ ] Job Tracker page loads.
 - [ ] Empty state appears when no jobs exist.
+- [ ] Confirm blank or whitespace-only company and job title values are rejected.
 - [ ] Create a job with company and job title.
 - [ ] Save the job and confirm it appears in the list.
 - [ ] Refresh the page and confirm the job persists.

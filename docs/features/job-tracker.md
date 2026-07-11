@@ -73,6 +73,8 @@ Creates a job.
 
 - Requires `company_name`.
 - Requires `job_title`.
+- Trims leading and trailing whitespace from `company_name` and `job_title`.
+- Returns `422 Unprocessable Entity` if either required field is blank after trimming.
 - Defaults `status` to `saved`.
 - Defaults `archived` to `false`.
 - Returns `201 Created` with the saved job.
@@ -83,6 +85,8 @@ Updates job details.
 
 - Requires `company_name`.
 - Requires `job_title`.
+- Trims leading and trailing whitespace from `company_name` and `job_title`.
+- Returns `422 Unprocessable Entity` if either required field is blank after trimming.
 - Returns the saved job.
 - Returns `404 Not Found` if the job does not exist.
 
@@ -192,6 +196,7 @@ Recommended manual QA:
 
 - Backend py_compile: Pass.
 - Frontend npm run build: Pass.
+- Isolated FastAPI TestClient validation smoke checks: Pass.
 - Existing automated backend tests: Not available.
 - Existing automated frontend tests: Not available.
 

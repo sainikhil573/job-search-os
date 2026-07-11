@@ -1,7 +1,7 @@
 from datetime import date, datetime
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 
 JobStatus = Literal["saved", "applied", "interviewing", "offer", "rejected"]
@@ -23,6 +23,13 @@ class JobApplicationBase(BaseModel):
     date_applied: str = ""
     follow_up_date: str = ""
     archived: bool = False
+
+    @field_validator("company_name", "job_title", mode="before")
+    @classmethod
+    def strip_required_text(cls, value):
+        if isinstance(value, str):
+            return value.strip()
+        return value
 
 
 class JobApplicationCreate(JobApplicationBase):

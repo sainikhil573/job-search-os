@@ -16,6 +16,10 @@ This project uses semantic versioning. During the pre-1.0 phase, minor versions 
 - Added modular Job Tracker components under `frontend/src/components/jobs/`.
 - Added Job Tracker feature documentation and manual QA coverage.
 
+#### Fixed
+
+- Fixed Job Tracker API validation so required company and job title values are trimmed and blank-after-trim values are rejected.
+
 ### Resume Studio Hardening
 
 #### Added
