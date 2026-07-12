@@ -8,17 +8,19 @@ The project is also being developed as a professional software engineering portf
 
 Implemented on `main`:
 
-- Dashboard foundation
+- Dashboard
 - Candidate Profile
 - Resume Studio
 - Job Tracker
 
 ## Feature Summaries
 
-### Dashboard Foundation
+### Dashboard
 
-- Provides the initial workspace shell and navigation.
-- Links to Dashboard, Profile, Resume Studio, and Job Tracker pages.
+- Summarizes persisted Job Tracker records.
+- Shows active jobs, archived jobs, active-job status counts, and recently updated jobs.
+- Links Dashboard sections to Job Tracker.
+- Provides loading, empty, all-archived, and API error states.
 
 ### Candidate Profile
 
@@ -189,7 +191,7 @@ Small documentation-only housekeeping may be committed directly to `main` when r
 - `CHANGELOG.md` records notable merged changes.
 - `DECISIONS.md` captures architecture and workflow decisions.
 - `QA_CHECKLIST.md` provides reusable validation checklists.
-- `docs/features/` contains feature-specific documentation for Profile, Resume Studio, and Job Tracker.
+- `docs/features/` contains feature-specific documentation for Dashboard, Profile, Resume Studio, and Job Tracker.
 
 ## Current Limitations
 

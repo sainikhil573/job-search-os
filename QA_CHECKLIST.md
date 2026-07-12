@@ -65,6 +65,40 @@ Use this checklist before marking a branch ready for review. Not every item appl
 - [ ] Browser console and server logs were reviewed.
 - [ ] Manual QA results were recorded in project documentation or the pull request.
 
+## Dashboard Integration Automated Verification
+
+- [ ] Frontend production build succeeds with `npm run build`.
+- [ ] Backend compile/import smoke check succeeds.
+- [ ] `git diff --check` passes.
+- [ ] Changed files contain no merge-conflict markers.
+- [ ] Changed files contain no accidental debug logging.
+- [ ] Changed files contain no hidden or suspicious Unicode.
+- [ ] Complete diff against `main` is limited to Dashboard Integration scope.
+
+## Dashboard Integration Manual QA
+
+- [x] Dashboard loads from the existing navigation.
+- [x] Active, archived, and status counts match Job Tracker data.
+- [x] Recently Updated Jobs shows no more than five records and labels archived jobs.
+- [x] Dashboard links navigate to Job Tracker.
+- [x] Dashboard remains usable at narrow viewport width.
+- [x] Candidate Profile, Resume Studio, and Job Tracker regression smoke checks pass.
+
+Manual QA result - Sprint 4 Dashboard Integration:
+
+- Product Owner browser QA: Pass.
+- Verification type: Manual browser verification.
+- Dashboard loads without errors: Pass.
+- Active, archived, and status counts match Job Tracker data: Pass.
+- Recently Updated Jobs limit and archived labels: Pass.
+- Job Tracker navigation: Pass.
+- Responsive narrow-width layout: Pass.
+- Profile, Resume Studio, and Job Tracker regression smoke checks: Pass.
+
+Notes:
+
+- Loading, API error, malformed legacy archive values, and unknown legacy statuses are covered by code inspection and non-browser verification, not Product Owner browser QA.
+
 ## Resume Studio Manual QA
 
 - [ ] Open the Resume Studio page from the existing navigation.

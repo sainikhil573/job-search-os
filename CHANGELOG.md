@@ -6,6 +6,20 @@ This project uses semantic versioning. During the pre-1.0 phase, minor versions 
 
 ## [Unreleased]
 
+### Dashboard Integration
+
+#### Added
+
+- Added frontend Dashboard aggregation from `GET /api/jobs?include_archived=true`.
+- Added active job, archived job, and active-job status count summaries.
+- Added a bounded "Recently Updated Jobs" Dashboard section with Job Tracker navigation actions.
+- Added Dashboard loading, API error, no-job, all-archived, and mixed-data states.
+- Added Dashboard feature documentation and QA coverage.
+
+#### Changed
+
+- Replaced misleading static Dashboard cards for unsupported resume and interview metrics.
+
 ### Job Tracker MVP
 
 #### Added
