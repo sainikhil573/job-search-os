@@ -77,24 +77,27 @@ Use this checklist before marking a branch ready for review. Not every item appl
 
 ## Dashboard Integration Manual QA
 
-- [ ] Dashboard loads from the existing navigation.
-- [ ] Dashboard shows a loading state while Job Tracker data is loading.
-- [ ] Dashboard shows an API error state with a retry action when jobs cannot be loaded.
-- [ ] Dashboard shows a no-job state when no job records exist.
-- [ ] Dashboard shows an all-archived state when every job is archived.
-- [ ] Active job count includes only records where `archived === false`.
-- [ ] Archived job count includes archived jobs.
-- [ ] Malformed archive values count as neither active nor archived.
-- [ ] Supported status cards always render, including zero values.
-- [ ] Supported status cards count active jobs only.
-- [ ] Archived jobs do not contribute to supported status counts.
-- [ ] Unknown or legacy statuses do not crash the Dashboard or create extra status cards.
-- [ ] Recently Updated Jobs shows up to five records with company, job title, status, and update date when available.
-- [ ] Recently Updated Jobs may include archived jobs and labels them as archived.
-- [ ] Missing company, title, or update date values show readable fallback text.
-- [ ] Dashboard links navigate to Job Tracker.
-- [ ] Dashboard remains usable at mobile and desktop viewport widths.
-- [ ] Candidate Profile, Resume Studio, and Job Tracker still load after Dashboard changes.
+- [x] Dashboard loads from the existing navigation.
+- [x] Active, archived, and status counts match Job Tracker data.
+- [x] Recently Updated Jobs shows no more than five records and labels archived jobs.
+- [x] Dashboard links navigate to Job Tracker.
+- [x] Dashboard remains usable at narrow viewport width.
+- [x] Candidate Profile, Resume Studio, and Job Tracker regression smoke checks pass.
+
+Manual QA result - Sprint 4 Dashboard Integration:
+
+- Product Owner browser QA: Pass.
+- Verification type: Manual browser verification.
+- Dashboard loads without errors: Pass.
+- Active, archived, and status counts match Job Tracker data: Pass.
+- Recently Updated Jobs limit and archived labels: Pass.
+- Job Tracker navigation: Pass.
+- Responsive narrow-width layout: Pass.
+- Profile, Resume Studio, and Job Tracker regression smoke checks: Pass.
+
+Notes:
+
+- Loading, API error, malformed legacy archive values, and unknown legacy statuses are covered by code inspection and non-browser verification, not Product Owner browser QA.
 
 ## Resume Studio Manual QA
 

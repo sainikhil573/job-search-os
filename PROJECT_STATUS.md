@@ -18,7 +18,7 @@ Connect the Dashboard to persisted Job Tracker data using the existing jobs API 
 
 ## Next Milestone
 
-Complete technical review and Product Owner manual QA for Dashboard Integration, then continue focused automated test coverage planning.
+Merge Sprint 4 Dashboard Integration after completed technical review and Product Owner manual QA, then complete post-merge closeout.
 
 ## Recent Merges
 
@@ -90,7 +90,7 @@ Complete Sprint 4: Dashboard Integration on the `feature/dashboard-integration` 
 
 ## Upcoming Tasks
 
-- Complete Product Owner manual QA for Dashboard Integration.
+- Merge Sprint 4 Dashboard Integration after Product Owner QA approval.
 - Add automated backend and frontend tests for Job Tracker and Resume Studio.
 - Establish linting, formatting, and CI standards.
 - Add richer Job Tracker search and filtering after MVP review.
@@ -204,7 +204,7 @@ Codex verification results:
 
 ## Sprint 4: Dashboard Integration
 
-Status: Implemented on `feature/dashboard-integration`; pending technical review and Product Owner manual QA.
+Status: Implemented on `feature/dashboard-integration`; Product Owner browser QA passed; pending merge and post-merge closeout.
 
 Scope:
 
@@ -249,7 +249,16 @@ Codex verification results:
 - Complete diff inspection against main: Pass.
 - Existing automated backend tests: Not available.
 - Existing automated frontend tests: Not available.
-- Product Owner manual QA: Not yet performed.
+- Product Owner manual browser QA: Pass.
+
+Product Owner browser QA results:
+
+- Dashboard loads without errors: Pass.
+- Active, archived, and status counts match Job Tracker data: Pass.
+- Recently Updated Jobs shows no more than five records and labels archived jobs: Pass.
+- Job Tracker navigation works: Pass.
+- Responsive narrow-width layout works: Pass.
+- Profile, Resume Studio, and Job Tracker regression smoke checks pass: Pass.
 
 ## Future Features
 
