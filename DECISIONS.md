@@ -96,7 +96,7 @@ This log tracks major product, architecture, and workflow decisions for Job Sear
 
 - Date: 2026-07-12
 - Decision: Sprint 4 Dashboard Integration reuses `GET /api/jobs?include_archived=true` and performs lightweight job summary aggregation in the frontend.
-- Context: The Dashboard needs real persisted Job Tracker data for active jobs, archived jobs, supported status counts, and recently updated jobs. The current product is an early local, single-user MVP without pagination, authentication, multi-user ownership, or analytics-scale data.
+- Context: The Dashboard needs real persisted Job Tracker data for active jobs, archived jobs, active-job status counts, and recently updated jobs. The current product is an early local, single-user MVP without pagination, authentication, multi-user ownership, or analytics-scale data.
 - Alternatives considered: Add a dedicated Dashboard summary endpoint now, introduce backend aggregation services, add broader analytics models, or continue showing static placeholder metrics.
 - Reasoning: The existing jobs endpoint already returns the fields needed for the approved Dashboard MVP. Frontend aggregation avoids premature API surface and keeps the sprint focused while still replacing misleading static Dashboard metrics with real persisted data.
 - Consequences: Dashboard remains coupled to the existing job response shape for this MVP. A dedicated summary endpoint should be reconsidered when pagination, authentication, multi-user ownership, cross-feature summaries, or analytics needs make client-side aggregation inappropriate.

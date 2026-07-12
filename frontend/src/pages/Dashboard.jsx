@@ -9,12 +9,18 @@ function isArchivedJob(job) {
   return job?.archived === true;
 }
 
+function isActiveJob(job) {
+  return job?.archived === false;
+}
+
 function getDisplayText(value, fallback) {
   return typeof value === "string" && value.trim() ? value.trim() : fallback;
 }
 
 function getDashboardStatusLabel(status) {
-  return jobStatuses.find((item) => item.value === status)?.label ?? "Unknown status";
+  return (
+    jobStatuses.find((item) => item.value === status)?.label ?? "Unknown status"
+  );
 }
 
 function getUpdatedTimestamp(job) {
@@ -47,14 +53,14 @@ function buildDashboardSummary(jobs) {
   let archivedJobs = 0;
 
   jobs.forEach((job) => {
-    if (isArchivedJob(job)) {
-      archivedJobs += 1;
-    } else {
+    if (isActiveJob(job)) {
       activeJobs += 1;
-    }
 
-    if (Object.hasOwn(statusCounts, job?.status)) {
-      statusCounts[job.status] += 1;
+      if (Object.hasOwn(statusCounts, job?.status)) {
+        statusCounts[job.status] += 1;
+      }
+    } else if (isArchivedJob(job)) {
+      archivedJobs += 1;
     }
   });
 
@@ -77,6 +83,7 @@ function buildDashboardSummary(jobs) {
     recentlyUpdatedJobs,
     statusCounts,
     totalJobs: jobs.length,
+    totalJobsAreArchived: jobs.length > 0 && archivedJobs === jobs.length,
   };
 }
 
@@ -189,7 +196,7 @@ function Dashboard() {
             </DashboardMessage>
           )}
 
-          {summary.totalJobs > 0 && summary.activeJobs === 0 && (
+          {summary.totalJobsAreArchived && (
             <DashboardMessage
               action={<JobTrackerLink>Review Archived Jobs</JobTrackerLink>}
               title="All jobs are archived"
@@ -211,7 +218,7 @@ function Dashboard() {
                   Jobs by Status
                 </h3>
                 <p className="mt-1 text-sm text-zinc-500">
-                  Counts include active and archived jobs.
+                  Counts include active jobs only.
                 </p>
               </div>
               <JobTrackerLink>Manage Jobs</JobTrackerLink>

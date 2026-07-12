@@ -82,11 +82,15 @@ Use this checklist before marking a branch ready for review. Not every item appl
 - [ ] Dashboard shows an API error state with a retry action when jobs cannot be loaded.
 - [ ] Dashboard shows a no-job state when no job records exist.
 - [ ] Dashboard shows an all-archived state when every job is archived.
-- [ ] Active job count includes non-archived rejected jobs.
+- [ ] Active job count includes only records where `archived === false`.
 - [ ] Archived job count includes archived jobs.
+- [ ] Malformed archive values count as neither active nor archived.
 - [ ] Supported status cards always render, including zero values.
+- [ ] Supported status cards count active jobs only.
+- [ ] Archived jobs do not contribute to supported status counts.
 - [ ] Unknown or legacy statuses do not crash the Dashboard or create extra status cards.
 - [ ] Recently Updated Jobs shows up to five records with company, job title, status, and update date when available.
+- [ ] Recently Updated Jobs may include archived jobs and labels them as archived.
 - [ ] Missing company, title, or update date values show readable fallback text.
 - [ ] Dashboard links navigate to Job Tracker.
 - [ ] Dashboard remains usable at mobile and desktop viewport widths.

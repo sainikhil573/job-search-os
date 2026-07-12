@@ -18,7 +18,7 @@ Implemented on `main`:
 ### Dashboard
 
 - Summarizes persisted Job Tracker records.
-- Shows active jobs, archived jobs, supported status counts, and recently updated jobs.
+- Shows active jobs, archived jobs, active-job status counts, and recently updated jobs.
 - Links Dashboard sections to Job Tracker.
 - Provides loading, empty, all-archived, and API error states.
 

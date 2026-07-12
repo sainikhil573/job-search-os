@@ -244,7 +244,7 @@ Scope:
 
 - Use the existing Job Tracker API with `include_archived=true`.
 - Aggregate Dashboard data in the frontend for the current local single-user MVP.
-- Display total active jobs, total archived jobs, and counts for supported job statuses.
+- Display total active jobs, total archived jobs, and active-job counts for supported statuses.
 - Display a bounded "Recently Updated Jobs" list.
 - Link Dashboard sections to Job Tracker.
 - Cover loading, API error, no-job, all-archived, and normal mixed-data states.

@@ -210,7 +210,7 @@ Scope:
 
 - Use `GET /api/jobs?include_archived=true`.
 - Aggregate Dashboard counts in the frontend.
-- Show total active jobs, total archived jobs, and counts for supported statuses.
+- Show total active jobs, total archived jobs, and active-job counts for supported statuses.
 - Show a bounded "Recently Updated Jobs" list from existing job records.
 - Provide links from Dashboard sections to Job Tracker.
 - Provide loading, API error, no-job, all-archived, and normal mixed-data states.
@@ -220,7 +220,8 @@ Implemented:
 - Replaced static Dashboard placeholder cards for applications, resumes, and interviews with real Job Tracker summaries.
 - Reused the existing Job Tracker API service and status definitions.
 - Kept rejected jobs active unless archived.
-- Added defensive handling for non-array API responses, unknown statuses, malformed archive flags, missing company/title values, and missing or invalid update timestamps.
+- Added strict archive semantics so only `archived === false` counts active, only `archived === true` counts archived, and malformed archive values are excluded from both totals.
+- Added defensive handling for non-array API responses, unknown statuses, missing company/title values, and missing or invalid update timestamps.
 - Added focused Dashboard feature documentation and QA checklist coverage.
 
 Deferred:
@@ -353,6 +354,6 @@ Codex verification results:
 
 - Began Sprint 4 Dashboard Integration on the `feature/dashboard-integration` branch.
 - Replaced static Dashboard metrics with frontend aggregation from the existing Job Tracker API.
-- Added active job count, archived job count, supported status counts, recently updated jobs, and Job Tracker navigation actions.
+- Added active job count, archived job count, active-job status counts, recently updated jobs, and Job Tracker navigation actions.
 - Added Dashboard loading, API error, no-job, all-archived, and mixed-data states.
 - Documented the Dashboard Integration MVP scope, architecture, limitations, and QA scenarios.
