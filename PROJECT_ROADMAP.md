@@ -236,6 +236,28 @@ Medium
 - Empty states are useful for new users.
 - Metrics update as source data changes.
 
+### Sprint 4: Dashboard Integration
+
+Status: Implemented on `feature/dashboard-integration`; pending review and Product Owner manual QA.
+
+Scope:
+
+- Use the existing Job Tracker API with `include_archived=true`.
+- Aggregate Dashboard data in the frontend for the current local single-user MVP.
+- Display total active jobs, total archived jobs, and counts for supported job statuses.
+- Display a bounded "Recently Updated Jobs" list.
+- Link Dashboard sections to Job Tracker.
+- Cover loading, API error, no-job, all-archived, and normal mixed-data states.
+
+Deferred:
+
+- Upcoming follow-ups.
+- Interview schedule preview.
+- Resume completion indicators.
+- Reminders and notifications.
+- Advanced analytics.
+- Dedicated Dashboard API endpoint.
+
 ## Phase 5: Authentication
 
 ### Goal

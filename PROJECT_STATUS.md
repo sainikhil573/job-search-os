@@ -6,19 +6,19 @@ Job Search OS is a long-term product vision for an AI-powered operating system f
 
 ## Current Phase
 
-Phase 3: Job Tracker MVP
+Phase 4: Dashboard Integration
 
 ## Current Sprint
 
-Sprint 3: Job Tracker MVP on the `feature/job-tracker-mvp` branch.
+Sprint 4: Dashboard Integration on the `feature/dashboard-integration` branch.
 
 ## Current Milestone
 
-Build the manual Job Tracker foundation for creating, viewing, editing, status-updating, archiving, unarchiving, and persisting job records.
+Connect the Dashboard to persisted Job Tracker data using the existing jobs API and frontend aggregation.
 
 ## Next Milestone
 
-Complete Product Owner manual QA for Job Tracker MVP and then establish automated backend and frontend test coverage for core workflows.
+Complete technical review and Product Owner manual QA for Dashboard Integration, then continue focused automated test coverage planning.
 
 ## Recent Merges
 
@@ -28,6 +28,7 @@ Complete Product Owner manual QA for Job Tracker MVP and then establish automate
 - `0.4.0` Profile Module
 - Release 0.5 / Sprint 2: Resume Studio MVP
 - Sprint 2.5: Resume Studio Hardening
+- Sprint 3: Job Tracker MVP
 
 ## Architecture Decisions
 
@@ -80,14 +81,16 @@ Complete Product Owner manual QA for Job Tracker MVP and then establish automate
 - Replaced the Job Tracker placeholder with a modular frontend workflow for creating, viewing, editing, status-updating, archiving, and unarchiving jobs.
 - Added frontend Job Tracker components and API service.
 - Created `docs/features/job-tracker.md` to document the Job Tracker MVP.
+- Connected the Dashboard to persisted Job Tracker data for active, archived, status, and recently updated job summaries.
+- Created `docs/features/dashboard.md` to document the Dashboard Integration MVP.
 
 ## Current Task
 
-Complete Sprint 3: Job Tracker MVP on the `feature/job-tracker-mvp` branch.
+Complete Sprint 4: Dashboard Integration on the `feature/dashboard-integration` branch.
 
 ## Upcoming Tasks
 
-- Complete Product Owner manual QA for Job Tracker MVP.
+- Complete Product Owner manual QA for Dashboard Integration.
 - Add automated backend and frontend tests for Job Tracker and Resume Studio.
 - Establish linting, formatting, and CI standards.
 - Add richer Job Tracker search and filtering after MVP review.
@@ -104,6 +107,7 @@ Complete Sprint 3: Job Tracker MVP on the `feature/job-tracker-mvp` branch.
 - Job Tracker automated backend endpoint tests are not yet available.
 - Job Tracker frontend component and workflow tests are not yet available.
 - Job Tracker does not yet include authentication, user ownership, status history, reminders, recruiter CRM, interview tracking, analytics, or AI matching.
+- Dashboard Integration does not yet include upcoming follow-ups, interview previews, resume metrics, reminders, status history, or advanced analytics.
 
 ## Release 0.5 / Sprint 2: Resume Studio MVP
 
@@ -194,6 +198,54 @@ Codex verification results:
 - Backend py_compile: Pass.
 - Frontend npm run build: Pass.
 - Isolated FastAPI TestClient validation smoke checks: Pass.
+- Existing automated backend tests: Not available.
+- Existing automated frontend tests: Not available.
+- Product Owner manual QA: Not yet performed.
+
+## Sprint 4: Dashboard Integration
+
+Status: Implemented on `feature/dashboard-integration`; pending technical review and Product Owner manual QA.
+
+Scope:
+
+- Use `GET /api/jobs?include_archived=true`.
+- Aggregate Dashboard counts in the frontend.
+- Show total active jobs, total archived jobs, and counts for supported statuses.
+- Show a bounded "Recently Updated Jobs" list from existing job records.
+- Provide links from Dashboard sections to Job Tracker.
+- Provide loading, API error, no-job, all-archived, and normal mixed-data states.
+
+Implemented:
+
+- Replaced static Dashboard placeholder cards for applications, resumes, and interviews with real Job Tracker summaries.
+- Reused the existing Job Tracker API service and status definitions.
+- Kept rejected jobs active unless archived.
+- Added defensive handling for non-array API responses, unknown statuses, malformed archive flags, missing company/title values, and missing or invalid update timestamps.
+- Added focused Dashboard feature documentation and QA checklist coverage.
+
+Deferred:
+
+- Upcoming follow-ups.
+- Date parsing or follow-up reminders.
+- Dedicated Dashboard API endpoint.
+- Backend or database changes.
+- Status history.
+- Interview tracking.
+- Resume metrics.
+- Recruiter CRM.
+- Authentication.
+- AI features.
+- Notifications.
+- Advanced analytics.
+- Pagination.
+
+Codex verification results:
+
+- Frontend npm run build: Pass.
+- Backend py_compile/import smoke with isolated in-memory SQLite database: Pass.
+- git diff --check: Pass.
+- Changed-file quality scan for merge-conflict markers, debug logging, and non-ASCII characters: Pass.
+- Complete diff inspection against main: Pass.
 - Existing automated backend tests: Not available.
 - Existing automated frontend tests: Not available.
 - Product Owner manual QA: Not yet performed.
@@ -294,3 +346,13 @@ Codex verification results:
 - Fixed required company and job title validation to trim surrounding whitespace and reject blank-after-trim values.
 - Documented the Job Tracker MVP scope, API contract, database decision, manual QA steps, deferred work, and future improvements.
 - Verified backend Python compilation, isolated FastAPI validation smoke checks, and frontend production build.
+
+### 2026-07-12
+
+#### Dashboard Integration
+
+- Began Sprint 4 Dashboard Integration on the `feature/dashboard-integration` branch.
+- Replaced static Dashboard metrics with frontend aggregation from the existing Job Tracker API.
+- Added active job count, archived job count, supported status counts, recently updated jobs, and Job Tracker navigation actions.
+- Added Dashboard loading, API error, no-job, all-archived, and mixed-data states.
+- Documented the Dashboard Integration MVP scope, architecture, limitations, and QA scenarios.

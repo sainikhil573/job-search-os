@@ -65,6 +65,33 @@ Use this checklist before marking a branch ready for review. Not every item appl
 - [ ] Browser console and server logs were reviewed.
 - [ ] Manual QA results were recorded in project documentation or the pull request.
 
+## Dashboard Integration Automated Verification
+
+- [ ] Frontend production build succeeds with `npm run build`.
+- [ ] Backend compile/import smoke check succeeds.
+- [ ] `git diff --check` passes.
+- [ ] Changed files contain no merge-conflict markers.
+- [ ] Changed files contain no accidental debug logging.
+- [ ] Changed files contain no hidden or suspicious Unicode.
+- [ ] Complete diff against `main` is limited to Dashboard Integration scope.
+
+## Dashboard Integration Manual QA
+
+- [ ] Dashboard loads from the existing navigation.
+- [ ] Dashboard shows a loading state while Job Tracker data is loading.
+- [ ] Dashboard shows an API error state with a retry action when jobs cannot be loaded.
+- [ ] Dashboard shows a no-job state when no job records exist.
+- [ ] Dashboard shows an all-archived state when every job is archived.
+- [ ] Active job count includes non-archived rejected jobs.
+- [ ] Archived job count includes archived jobs.
+- [ ] Supported status cards always render, including zero values.
+- [ ] Unknown or legacy statuses do not crash the Dashboard or create extra status cards.
+- [ ] Recently Updated Jobs shows up to five records with company, job title, status, and update date when available.
+- [ ] Missing company, title, or update date values show readable fallback text.
+- [ ] Dashboard links navigate to Job Tracker.
+- [ ] Dashboard remains usable at mobile and desktop viewport widths.
+- [ ] Candidate Profile, Resume Studio, and Job Tracker still load after Dashboard changes.
+
 ## Resume Studio Manual QA
 
 - [ ] Open the Resume Studio page from the existing navigation.
