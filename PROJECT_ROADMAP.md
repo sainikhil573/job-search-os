@@ -238,7 +238,7 @@ Medium
 
 ### Sprint 4: Dashboard Integration
 
-Status: Implemented on `feature/dashboard-integration`; pending review and Product Owner manual QA.
+Status: Completed; merged to `main` through PR #9 after Product Owner manual QA and post-merge smoke verification.
 
 Scope:
 

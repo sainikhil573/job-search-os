@@ -6,19 +6,19 @@ Job Search OS is a long-term product vision for an AI-powered operating system f
 
 ## Current Phase
 
-Phase 4: Dashboard Integration
+Phase 5: Authentication Planning
 
 ## Current Sprint
 
-Sprint 4: Dashboard Integration on the `feature/dashboard-integration` branch.
+Sprint 4: Dashboard Integration closed on `main`.
 
 ## Current Milestone
 
-Connect the Dashboard to persisted Job Tracker data using the existing jobs API and frontend aggregation.
+Sprint 4 Dashboard Integration merged, verified, and closed.
 
 ## Next Milestone
 
-Merge Sprint 4 Dashboard Integration after completed technical review and Product Owner manual QA, then complete post-merge closeout.
+Begin Phase 5 Authentication planning from the roadmap.
 
 ## Recent Merges
 
@@ -29,6 +29,7 @@ Merge Sprint 4 Dashboard Integration after completed technical review and Produc
 - Release 0.5 / Sprint 2: Resume Studio MVP
 - Sprint 2.5: Resume Studio Hardening
 - Sprint 3: Job Tracker MVP
+- Sprint 4: Dashboard Integration
 
 ## Architecture Decisions
 
@@ -86,11 +87,11 @@ Merge Sprint 4 Dashboard Integration after completed technical review and Produc
 
 ## Current Task
 
-Complete Sprint 4: Dashboard Integration on the `feature/dashboard-integration` branch.
+Sprint 4 Dashboard Integration is closed; prepare the next roadmap item.
 
 ## Upcoming Tasks
 
-- Merge Sprint 4 Dashboard Integration after Product Owner QA approval.
+- Begin Phase 5 Authentication planning and scope.
 - Add automated backend and frontend tests for Job Tracker and Resume Studio.
 - Establish linting, formatting, and CI standards.
 - Add richer Job Tracker search and filtering after MVP review.
@@ -204,7 +205,7 @@ Codex verification results:
 
 ## Sprint 4: Dashboard Integration
 
-Status: Implemented on `feature/dashboard-integration`; Product Owner browser QA passed; pending merge and post-merge closeout.
+Status: Merged to `main` through PR #9; Product Owner browser QA passed; post-merge smoke checks passed; feature branch cleanup completed; sprint closed.
 
 Scope:
 
@@ -223,6 +224,8 @@ Implemented:
 - Added strict archive semantics so only `archived === false` counts active, only `archived === true` counts archived, and malformed archive values are excluded from both totals.
 - Added defensive handling for non-array API responses, unknown statuses, missing company/title values, and missing or invalid update timestamps.
 - Added focused Dashboard feature documentation and QA checklist coverage.
+- Merged PR #9 into `main` with merge commit `061906e3b30d4192e7a439ca5d2bcd8c5b8bc69f`.
+- Deleted the local and remote `feature/dashboard-integration` branches after merge.
 
 Deferred:
 
@@ -247,6 +250,9 @@ Codex verification results:
 - git diff --check: Pass.
 - Changed-file quality scan for merge-conflict markers, debug logging, and non-ASCII characters: Pass.
 - Complete diff inspection against main: Pass.
+- Post-merge frontend npm run build on main: Pass.
+- Post-merge backend py_compile/import smoke with isolated in-memory SQLite database on main: Pass.
+- Local main synchronized with origin/main at merge commit `061906e3b30d4192e7a439ca5d2bcd8c5b8bc69f`: Pass.
 - Existing automated backend tests: Not available.
 - Existing automated frontend tests: Not available.
 - Product Owner manual browser QA: Pass.
@@ -366,3 +372,6 @@ Product Owner browser QA results:
 - Added active job count, archived job count, active-job status counts, recently updated jobs, and Job Tracker navigation actions.
 - Added Dashboard loading, API error, no-job, all-archived, and mixed-data states.
 - Documented the Dashboard Integration MVP scope, architecture, limitations, and QA scenarios.
+- Merged Sprint 4 Dashboard Integration through PR #9.
+- Verified frontend and backend smoke checks on `main` after merge.
+- Deleted the merged `feature/dashboard-integration` branch locally and on origin.
