@@ -134,6 +134,12 @@ Notes:
 - [ ] Confirm the archive filter reads "Include archived jobs."
 - [ ] Enable "Include archived jobs" and confirm active and archived jobs can be seen.
 - [ ] Unarchive the job.
+- [ ] Search by company, title, location, source, and notes and confirm only matching loaded jobs appear.
+- [ ] Filter by status and confirm only matching loaded jobs appear.
+- [ ] Filter by priority and confirm only matching loaded jobs appear.
+- [ ] Confirm the filtered count updates when search, status, priority, or archived visibility changes.
+- [ ] Confirm the no-matching-jobs state appears when filters exclude all loaded jobs.
+- [ ] Clear filters and confirm the full loaded job list returns.
 - [ ] Confirm no app-related console errors.
 - [ ] Confirm no backend tracebacks.
 
@@ -195,7 +201,7 @@ Known technical debt:
 - Add backend endpoint tests for Job Tracker API.
 - Add frontend component and workflow tests.
 - Add authentication and job ownership.
-- Add richer search and filtering.
+- Add backend query filtering and pagination when dataset size, authentication, or dashboard needs justify it.
 - Add status history when analytics or audit needs require it.
 - Add related recruiter, contact, interview, reminder, and AI matching tables in future scoped sprints.
 

@@ -21,7 +21,7 @@ The intended differentiation from a basic job tracker is the eventual combinatio
 - Dashboard: live summary of persisted Job Tracker records.
 - Candidate Profile: structured candidate information used by future resume, matching, and AI workflows.
 - Resume Studio: one structured base resume with editable sections and preview.
-- Job Tracker: manual job application records with status updates and archive-first deletion.
+- Job Tracker: manual job application records with status updates, archive-first deletion, and client-side search/filtering.
 
 ## Future Product Direction
 
@@ -95,6 +95,7 @@ No migration directory or Alembic setup was found. Database schema is currently 
 - Resume Studio hardening and verification documentation.
 - Job Tracker create/read/update/status/archive/unarchive workflow.
 - Job Tracker required field trimming and blank-value validation.
+- Job Tracker client-side search by job text plus status and priority filtering.
 - Dashboard integration with live Job Tracker summaries, status counts, recently updated jobs, navigation, and loading/error/empty/all-archived states.
 - Engineering documentation: contribution guidance, QA checklist, changelog, roadmap, decisions, and AI engineering guide.
 
@@ -114,9 +115,9 @@ Resume Studio supports one structured base resume with editable sections and a l
 
 ### Job Tracker
 
-Status: MVP implemented and merged to `main`.
+Status: MVP implemented and merged to `main`; Sprint 5 search/filtering implemented in the current working tree and pending review.
 
-Job Tracker supports creating, viewing, editing, status updating, archiving, unarchiving, and listing active or archived jobs. Deferred work includes search/filtering beyond archived visibility, status history, reminders, recruiter CRM, interview tracking, analytics, AI matching, authentication ownership, and automated tests.
+Job Tracker supports creating, viewing, editing, status updating, archiving, unarchiving, listing active or archived jobs, client-side text search, status filtering, and priority filtering. Deferred work includes backend query filtering, pagination, status history, reminders, recruiter CRM, interview tracking, analytics, AI matching, authentication ownership, and automated tests.
 
 ### Dashboard Integration
 
@@ -136,7 +137,7 @@ Dashboard uses `GET /api/jobs?include_archived=true` and frontend aggregation to
 - Resume Studio response fields expose internal `*_json` names.
 - Resume section data may need normalization when versioning, analytics, or richer querying require it.
 - Dashboard aggregation is currently frontend-only and coupled to the Job Tracker response shape.
-- Job Tracker lacks status history, reminders, recruiter/contact records, interview records, and search/filtering beyond archived visibility.
+- Job Tracker filtering is currently client-side and lacks backend query filtering, pagination, status history, reminders, recruiter/contact records, and interview records.
 - AI features are intentionally deferred until manual workflows, authentication, and data ownership are stable.
 - Product language must continue to match actual data. For example, the current Dashboard says "Recently Updated Jobs" rather than implying activity history, because there is no event or status-history model yet.
 

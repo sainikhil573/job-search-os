@@ -4,7 +4,7 @@ This roadmap records completed, candidate, and future milestones for Job Search 
 
 ## Current Position
 
-The implementation baseline is `main` at Sprint 4 closeout. The next sprint has not been approved yet. The next activity should be a read-only sprint-entry review before implementation begins.
+The implementation baseline is `main` at Sprint 4 closeout. Sprint 5 Job Tracker Search and Filtering has been approved and implemented in the current working tree; it is pending review and merge.
 
 ## Completed Milestones
 
@@ -84,9 +84,20 @@ Status: Completed and closed on `main` through PR #9 and PR #10.
 - Added loading, API error, no-job, all-archived, and mixed-data states.
 - Recorded post-merge smoke verification and Product Owner browser QA.
 
+### Sprint 5 Job Tracker Search And Filtering
+
+Status: Implemented in the current working tree; pending review and merge.
+
+- Added client-side Job Tracker search across company, title, location, source, priority, salary range, job description, and notes.
+- Added status filtering.
+- Added priority filtering based on loaded job records.
+- Added visible match counts and a clear-filters action.
+- Added a distinct no-matching-jobs empty state.
+- Preserved the existing archived visibility toggle and Job Tracker API contract.
+
 ## Next-Sprint Candidates Pending Review
 
-No next sprint is approved yet. These candidates should be compared before implementation starts.
+After Sprint 5, these candidates should be compared before the next implementation sprint starts.
 
 ### Authentication Planning
 
@@ -155,25 +166,6 @@ Possible deliverables:
 - Documented local migration workflow.
 - Guidance for future schema changes.
 
-### Job Tracker Search And Filtering
-
-Why consider it:
-
-- It improves the already-completed Job Tracker MVP directly.
-- It is a smaller product-facing increment than authentication.
-- It can improve daily usability without broad architecture changes.
-
-Trade-offs:
-
-- Delays authentication and user ownership.
-- May need later rework if filtering semantics change after multi-user ownership, pagination, or analytics work.
-
-Possible deliverables:
-
-- Search by company/title.
-- Filter by status, archived state, priority, or dates if scoped.
-- Focused frontend and API behavior documentation.
-
 ## Planned But Unprioritized Product Areas
 
 - Recruiter CRM
@@ -222,7 +214,7 @@ Possible deliverables:
 
 ### Job Tracker Expansion
 
-- Search and filtering.
+- Backend query filtering and pagination.
 - Status history.
 - Follow-up dates and reminders.
 - Recruiter/contact records.

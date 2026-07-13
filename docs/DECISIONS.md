@@ -110,3 +110,12 @@ This log tracks meaningful product, architecture, and workflow decisions for Job
 - Reasoning: Accurate product language prevents the UI and documentation from promising capabilities the system does not have. This is especially important for a portfolio project where product judgment is part of the artifact.
 - Consequences: Future dashboards, analytics, reminders, and AI features should not claim activity history, follow-up semantics, interview metrics, or resume performance until the underlying data exists.
 - Status: Accepted
+
+## 2026-07-13: Use client-side filtering for Sprint 5 Job Tracker search
+
+- Decision: Implement Sprint 5 Job Tracker search and filtering in the frontend against the currently loaded job list.
+- Context: Job Search OS is still a local single-user MVP without authentication, pagination, or large dataset requirements. Sprint 5 was approved as a user-facing portfolio improvement rather than an infrastructure sprint.
+- Alternatives considered: Add backend query parameters immediately, introduce pagination, add a dedicated search service, or defer filtering until authentication and data ownership exist.
+- Reasoning: The existing Job Tracker endpoint already returns the fields needed for a useful MVP search/filter workflow. Client-side filtering keeps the sprint small, avoids premature API expansion, and improves daily usability without database or schema changes.
+- Consequences: Filtering currently applies only to loaded records. Backend query filtering and pagination should be reconsidered when authentication, larger datasets, shared dashboard summaries, or server-side ownership constraints make client-side filtering insufficient.
+- Status: Accepted

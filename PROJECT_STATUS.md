@@ -1,25 +1,24 @@
 # Project Status
 
-Last updated: 2026-07-12
+Last updated: 2026-07-13
 
 ## Current State
 
-Job Search OS is a local full-stack MVP for job seekers. It currently supports Candidate Profile, Resume Studio, Job Tracker, and Dashboard summaries backed by FastAPI, React, SQLAlchemy, and SQLite.
+Job Search OS is a local full-stack MVP for job seekers. It currently supports Candidate Profile, Resume Studio, Job Tracker search/filtering, and Dashboard summaries backed by FastAPI, React, SQLAlchemy, and SQLite.
 
-The implementation baseline is `main`, aligned with `origin/main`, with Sprint 4 Dashboard Integration closed. No product feature is currently in progress.
+The implementation baseline is `main`, aligned with `origin/main`, with Sprint 4 Dashboard Integration closed. Sprint 5 Job Tracker Search and Filtering has been approved and implemented in the current working tree; it is pending review and merge.
 
 ## Pending Next-Sprint Review
 
-No next sprint is approved yet. The next activity should be a read-only sprint-entry review that compares the leading candidates against the product roadmap, repository state, implementation risk, and portfolio value.
+Sprint 5 Job Tracker Search and Filtering has been approved. The next sprint after Sprint 5 should be selected through another sprint-entry review.
 
-Leading candidates:
+Likely next candidates:
 
 - Authentication Planning
 - Testing and CI Foundation
 - Database Migration Foundation
-- Job Tracker Search and Filtering
 
-Authentication Planning is a strong roadmap candidate because private job-search data needs user ownership before multi-user, production, or AI-assisted workflows. It is not approved for implementation.
+Testing and CI Foundation remains a strong candidate before authentication implementation, migration work, or other cross-cutting product changes.
 
 ## Current Branch And Git Condition
 
@@ -28,7 +27,7 @@ Authentication Planning is a strong roadmap candidate because private job-search
 - Upstream baseline: `origin/main`
 - `main` and `origin/main`: no differences found during onboarding.
 - Working tree before onboarding: clean.
-- Working tree after onboarding: documentation-only changes.
+- Working tree after Sprint 5 implementation: Job Tracker search/filtering code and documentation updates.
 - Git warning observed: Git could not access `C:\Users\PC 2/.config/git/ignore` because of permission denial. Repository status still succeeded.
 
 ## Completed Product Features
@@ -37,6 +36,7 @@ Authentication Planning is a strong roadmap candidate because private job-search
 - Resume Studio MVP: implemented, hardened, and merged to `main`.
 - Job Tracker MVP: implemented and merged to `main`.
 - Dashboard Integration: implemented, verified, merged, and closed on `main`.
+- Job Tracker Search and Filtering: implemented in the current working tree; pending review and merge.
 
 See `docs/PROJECT_OVERVIEW.md` for feature details.
 
@@ -50,6 +50,7 @@ See `docs/PROJECT_OVERVIEW.md` for feature details.
 - Sprint 2.5: Resume Studio Hardening
 - Sprint 3: Job Tracker MVP
 - Sprint 4: Dashboard Integration
+- Sprint 5: Job Tracker Search and Filtering
 
 See `docs/ROADMAP.md` and `CHANGELOG.md` for milestone details.
 
@@ -61,7 +62,7 @@ See `docs/ROADMAP.md` and `CHANGELOG.md` for milestone details.
 - No linting, formatting, type-checking, or CI standard is configured.
 - SQLite is the current local MVP database; production multi-user persistence is not designed yet.
 - Resume Studio does not support AI optimization, ATS scoring, export, versions, templates, or analytics.
-- Job Tracker does not support search/filtering beyond archived visibility, status history, reminders, recruiter CRM, interview tracking, analytics, or AI matching.
+- Job Tracker search/filtering is client-side for the local MVP and does not yet support backend query filtering, pagination, status history, reminders, recruiter CRM, interview tracking, analytics, or AI matching.
 - Dashboard does not support follow-ups, interview previews, resume metrics, notifications, advanced analytics, pagination, or a dedicated backend summary endpoint.
 
 ## Documentation Follow-Up

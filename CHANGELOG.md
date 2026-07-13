@@ -6,6 +6,19 @@ This project uses semantic versioning. During the pre-1.0 phase, minor versions 
 
 ## [Unreleased]
 
+### Sprint 5 Job Tracker Search And Filtering
+
+#### Added
+
+- Added client-side Job Tracker search across loaded job records.
+- Added status and priority filters to the Job Tracker list.
+- Added visible filtered-match counts and a clear-filters action.
+- Added a distinct no-matching-jobs empty state.
+
+#### Changed
+
+- Documented the Sprint 5 decision to keep filtering client-side for the local MVP and defer backend query filtering until pagination, authentication, or larger datasets require it.
+
 ### Repository Onboarding
 
 #### Added
