@@ -84,8 +84,12 @@ SQLite is the current MVP database. PostgreSQL is a planned future migration opt
 |   |   `-- main.jsx
 |   `-- package.json
 |-- docs/
+|   |-- DECISIONS.md
+|   |-- PROJECT_OVERVIEW.md
+|   |-- ROADMAP.md
 |   |-- architecture.md
 |   `-- features/
+|-- AGENTS.md
 |-- AI_ENGINEERING_GUIDE.md
 |-- CHANGELOG.md
 |-- CONTRIBUTING.md
@@ -187,11 +191,15 @@ Small documentation-only housekeeping may be committed directly to `main` when r
 ## Documentation
 
 - `PROJECT_STATUS.md` tracks project progress, completed work, known issues, and technical debt.
-- `PROJECT_ROADMAP.md` describes the phased product roadmap.
+- `docs/PROJECT_OVERVIEW.md` describes product vision, users, architecture, major features, and limitations.
+- `docs/ROADMAP.md` is the proposed canonical roadmap for completed, candidate, and future milestones.
 - `CHANGELOG.md` records notable merged changes.
-- `DECISIONS.md` captures architecture and workflow decisions.
+- `docs/DECISIONS.md` is the proposed canonical record for architecture, product, and workflow decisions.
+- `AGENTS.md` defines permanent Codex operating rules.
 - `QA_CHECKLIST.md` provides reusable validation checklists.
 - `docs/features/` contains feature-specific documentation for Dashboard, Profile, Resume Studio, and Job Tracker.
+
+Root `PROJECT_ROADMAP.md` and `DECISIONS.md` are compatibility notices only. Do not edit them for roadmap or decision content.
 
 ## Current Limitations
 
@@ -221,7 +229,7 @@ Planned future work includes:
 - Adding document export, resume versioning, and analytics.
 - Improving automated backend and frontend test coverage.
 
-See `PROJECT_ROADMAP.md` for the full phase plan.
+See `docs/ROADMAP.md` for the full phase plan.
 
 ## Portfolio Value
 

@@ -46,7 +46,7 @@ These rules guide how Job Search OS should be built over time. They apply to eve
 ## Documentation Standards
 
 - Keep `README.md` useful for onboarding.
-- Keep `PROJECT_ROADMAP.md` aligned with product direction.
+- Keep `docs/ROADMAP.md` aligned with product direction.
 - Keep `docs/architecture.md` aligned with implementation decisions.
 - Record completed features and decisions in `PROJECT_STATUS.md`.
 - Document setup steps whenever new tools or services are introduced.

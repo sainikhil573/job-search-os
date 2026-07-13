@@ -2,7 +2,7 @@
 
 The Job Tracker MVP gives a user a manual way to create, view, edit, status-update, archive, unarchive, and persist job application records.
 
-Status: Sprint 3 MVP implemented on the `feature/job-tracker-mvp` branch. Product Owner manual QA is still required before merge.
+Status: Sprint 3 MVP completed and merged to `main` through PR #8.
 
 ## Scope
 
@@ -31,7 +31,7 @@ Not included yet:
 - Job scraping.
 - Automated reminders.
 - Resume-job comparison.
-- Dashboard count integration.
+- Deeper Dashboard analytics beyond the Sprint 4 summary integration.
 
 ## Frontend
 
@@ -204,6 +204,7 @@ Recommended manual QA:
 - Isolated FastAPI TestClient validation smoke checks: Pass.
 - Existing automated backend tests: Not available.
 - Existing automated frontend tests: Not available.
+- Later Sprint 4 Product Owner regression validation covered Job Tracker navigation and smoke behavior.
 
 ## Future Improvements
 

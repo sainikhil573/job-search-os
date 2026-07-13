@@ -42,7 +42,7 @@ Use this checklist before marking a branch ready for review. Not every item appl
 
 - [ ] `README.md` remains accurate for local setup.
 - [ ] `PROJECT_STATUS.md` reflects current work, milestones, known issues, and QA notes.
-- [ ] `DECISIONS.md` records major decisions.
+- [ ] `docs/DECISIONS.md` records major decisions.
 - [ ] `CHANGELOG.md` is updated for merged features.
 - [ ] Feature documentation is updated under `docs/features/` when behavior changes.
 - [ ] Markdown headings, file references, and terminology are consistent.

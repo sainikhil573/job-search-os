@@ -135,10 +135,12 @@ Documentation should be accurate, reviewable, and close to the work it describes
 Repository-level documents:
 
 - `README.md` explains local setup and basic project orientation.
-- `PROJECT_STATUS.md` tracks the current phase, sprint, milestones, recent merges, known issues, and chronological project history.
-- `PROJECT_ROADMAP.md` tracks long-term product phases.
-- `DECISIONS.md` records major product, architecture, and workflow decisions.
+- `PROJECT_STATUS.md` tracks concise current state and immediate next action.
+- `docs/PROJECT_OVERVIEW.md` tracks product vision, users, architecture, major features, and limitations.
+- `docs/ROADMAP.md` tracks completed, current, and future milestones.
+- `docs/DECISIONS.md` records major product, architecture, and workflow decisions.
 - `CHANGELOG.md` records merged feature history using semantic versioning.
+- `AGENTS.md` defines permanent Codex operating rules.
 - `DEVELOPMENT_RULES.md` defines baseline engineering rules.
 - `AI_ENGINEERING_GUIDE.md` defines how AI coding sessions should operate.
 - `QA_CHECKLIST.md` provides reusable validation coverage.
@@ -241,7 +243,13 @@ Current top-level structure:
 job-search-os/
   backend/
   docs/
+    DECISIONS.md
+    PROJECT_OVERVIEW.md
+    ROADMAP.md
+    architecture.md
+    features/
   frontend/
+  AGENTS.md
   AI_ENGINEERING_GUIDE.md
   CHANGELOG.md
   CONTRIBUTING.md
@@ -257,9 +265,15 @@ Documentation structure:
 
 ```text
 docs/
+  DECISIONS.md
+  PROJECT_OVERVIEW.md
+  ROADMAP.md
   architecture.md
   features/
+    dashboard.md
+    job-tracker.md
     profile.md
+    resume-studio.md
 ```
 
 Standards:
@@ -324,7 +338,7 @@ Update when:
 
 Keep chronological history append-only.
 
-### `DECISIONS.md`
+### `docs/DECISIONS.md`
 
 Update when:
 

@@ -82,7 +82,7 @@ Update the relevant files when behavior, architecture, workflow, or status chang
 
 - `README.md` for setup and onboarding changes.
 - `PROJECT_STATUS.md` for current phase, milestones, recent merges, known issues, and QA notes.
-- `DECISIONS.md` for major product, architecture, workflow, or tooling decisions.
+- `docs/DECISIONS.md` for major product, architecture, workflow, or tooling decisions.
 - `CHANGELOG.md` for merged features and releases.
 - `docs/architecture.md` for architecture changes.
 - `docs/features/` for feature-specific behavior and acceptance criteria.

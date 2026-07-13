@@ -6,6 +6,22 @@ This project uses semantic versioning. During the pre-1.0 phase, minor versions 
 
 ## [Unreleased]
 
+### Repository Onboarding
+
+#### Added
+
+- Added `AGENTS.md` with permanent Codex operating rules.
+- Added `docs/PROJECT_OVERVIEW.md` as the proposed canonical product, user, architecture, feature status, and limitation overview.
+- Added `docs/ROADMAP.md` as the proposed canonical completed, candidate, and future milestone roadmap.
+- Added `docs/DECISIONS.md` as the proposed canonical decision record.
+- Added conversation-derived product context for Career OS positioning, portfolio intent, future Learning Tracker and Career Analytics direction, and next-sprint candidate evaluation.
+
+#### Changed
+
+- Condensed `PROJECT_STATUS.md` into a current-state and immediate-next-action record.
+- Converted root `PROJECT_ROADMAP.md` and `DECISIONS.md` into compatibility notices that point to the proposed canonical records.
+- Corrected stale feature documentation status for merged Job Tracker and Dashboard work.
+
 ### Dashboard Integration
 
 #### Added

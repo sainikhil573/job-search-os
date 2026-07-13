@@ -2,7 +2,7 @@
 
 The Dashboard Integration MVP gives the user a lightweight overview of persisted Job Tracker records without adding a separate Dashboard backend endpoint.
 
-Status: Sprint 4 implemented on the `feature/dashboard-integration` branch. Technical review and Product Owner manual QA are still required before merge.
+Status: Sprint 4 completed and merged to `main` through PR #9. Sprint closeout documentation was merged through PR #10.
 
 ## Scope
 
