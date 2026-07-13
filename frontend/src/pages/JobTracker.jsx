@@ -16,17 +16,77 @@ import {
   updateJobStatus,
 } from "../services/jobApi.js";
 
+const searchableJobFields = [
+  "company_name",
+  "job_title",
+  "location",
+  "source",
+  "priority",
+  "salary_range",
+  "job_description",
+  "notes",
+];
+
+function getTrimmedLowercase(value) {
+  return typeof value === "string" ? value.trim().toLowerCase() : "";
+}
+
+function getJobPriority(job) {
+  return typeof job?.priority === "string" ? job.priority.trim() : "";
+}
+
+function jobMatchesSearch(job, normalizedSearchTerm) {
+  if (!normalizedSearchTerm) {
+    return true;
+  }
+
+  return searchableJobFields.some((field) =>
+    getTrimmedLowercase(job?.[field]).includes(normalizedSearchTerm),
+  );
+}
+
+function jobMatchesFilters(job, { priorityFilter, searchTerm, statusFilter }) {
+  const normalizedSearchTerm = getTrimmedLowercase(searchTerm);
+
+  return (
+    jobMatchesSearch(job, normalizedSearchTerm) &&
+    (!statusFilter || job.status === statusFilter) &&
+    (!priorityFilter || getJobPriority(job) === priorityFilter)
+  );
+}
+
 function JobTracker() {
   const [jobs, setJobs] = useState([]);
   const [formJob, setFormJob] = useState(emptyJob);
   const [editingJobId, setEditingJobId] = useState(null);
   const [includeArchived, setIncludeArchived] = useState(false);
+  const [priorityFilter, setPriorityFilter] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [statusFilter, setStatusFilter] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
   const [isMutating, setIsMutating] = useState(false);
   const [message, setMessage] = useState(null);
 
   const isEditing = useMemo(() => Boolean(editingJobId), [editingJobId]);
+  const priorityOptions = useMemo(
+    () =>
+      Array.from(new Set(jobs.map(getJobPriority).filter(Boolean))).sort((a, b) =>
+        a.localeCompare(b),
+      ),
+    [jobs],
+  );
+  const filteredJobs = useMemo(
+    () =>
+      jobs.filter((job) =>
+        jobMatchesFilters(job, { priorityFilter, searchTerm, statusFilter }),
+      ),
+    [jobs, priorityFilter, searchTerm, statusFilter],
+  );
+  const hasActiveFilters = useMemo(
+    () => Boolean(searchTerm.trim() || statusFilter || priorityFilter),
+    [priorityFilter, searchTerm, statusFilter],
+  );
 
   async function loadJobs(showArchived = includeArchived) {
     setIsLoading(true);
@@ -142,6 +202,12 @@ function JobTracker() {
     await loadJobs(value);
   }
 
+  function clearFilters() {
+    setSearchTerm("");
+    setStatusFilter("");
+    setPriorityFilter("");
+  }
+
   return (
     <section className="space-y-6">
       <div>
@@ -177,22 +243,34 @@ function JobTracker() {
         <div className="space-y-4">
           <JobFilters
             includeArchived={includeArchived}
+            matchCount={filteredJobs.length}
+            onClearFilters={clearFilters}
             onIncludeArchivedChange={handleIncludeArchivedChange}
+            onPriorityFilterChange={setPriorityFilter}
+            onSearchTermChange={setSearchTerm}
+            onStatusFilterChange={setStatusFilter}
+            priorityFilter={priorityFilter}
+            priorityOptions={priorityOptions}
+            searchTerm={searchTerm}
+            statusFilter={statusFilter}
+            totalCount={jobs.length}
           />
 
           {isLoading ? (
             <div className="rounded-lg border border-zinc-200 bg-white p-5 text-sm text-zinc-500">
               Loading jobs...
             </div>
-          ) : jobs.length === 0 ? (
+          ) : jobs.length === 0 || filteredJobs.length === 0 ? (
             <JobEmptyState
+              hasActiveFilters={jobs.length > 0 && hasActiveFilters}
               includeArchived={includeArchived}
+              onClearFilters={clearFilters}
               onCreateNew={resetForm}
             />
           ) : (
             <JobTable
               isMutating={isMutating}
-              jobs={jobs}
+              jobs={filteredJobs}
               onArchiveChange={handleArchiveChange}
               onEdit={handleEdit}
               onStatusChange={handleStatusChange}

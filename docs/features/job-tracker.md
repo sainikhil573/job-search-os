@@ -1,8 +1,8 @@
 # Job Tracker
 
-The Job Tracker MVP gives a user a manual way to create, view, edit, status-update, archive, unarchive, and persist job application records.
+The Job Tracker MVP gives a user a manual way to create, view, edit, status-update, archive, unarchive, search, filter, and persist job application records.
 
-Status: Sprint 3 MVP implemented on the `feature/job-tracker-mvp` branch. Product Owner manual QA is still required before merge.
+Status: Sprint 3 MVP completed and merged to `main` through PR #8. Sprint 5 search/filtering is implemented in the current working tree and pending review.
 
 ## Scope
 
@@ -14,6 +14,11 @@ Included in Sprint 3:
 - Update job status.
 - Archive and unarchive jobs.
 - Optionally include archived jobs in the list.
+- Search loaded jobs by company, title, location, source, priority, salary range, job description, and notes.
+- Filter loaded jobs by status.
+- Filter loaded jobs by priority.
+- Clear active search/status/priority filters.
+- See a distinct no-matching-jobs empty state when filters exclude all loaded jobs.
 - Persist jobs through the backend API and local SQLite database.
 - Basic loading, empty, success, and error states.
 
@@ -31,7 +36,8 @@ Not included yet:
 - Job scraping.
 - Automated reminders.
 - Resume-job comparison.
-- Dashboard count integration.
+- Backend query filtering, pagination, or saved filter views.
+- Deeper Dashboard analytics beyond the Sprint 4 summary integration.
 
 ## Frontend
 
@@ -46,6 +52,8 @@ Frontend code is organized under:
 The page loads jobs on mount, creates jobs with `POST /api/jobs`, updates details with `PUT /api/jobs/{job_id}`, updates status with `PATCH /api/jobs/{job_id}/status`, and archives or unarchives jobs with `PATCH /api/jobs/{job_id}/archive`.
 
 The frontend trims `company_name` and `job_title` before submission. Blank or whitespace-only required values show a validation error, do not call the API, preserve the form data for correction, and do not show a success message.
+
+Sprint 5 search and filtering is client-side. It applies to the currently loaded job list and does not change the backend API contract.
 
 ## API
 
@@ -62,6 +70,8 @@ Default behavior:
 Optional query parameter:
 
 - `include_archived=true` returns active and archived jobs.
+
+Search, status filtering, and priority filtering are currently frontend-only and are not API query parameters.
 
 ### `GET /api/jobs/{job_id}`
 
@@ -167,6 +177,11 @@ The MVP uses one normalized job application table and archive-first deletion. Th
 - Archived jobs disappear from the active list.
 - A user can include archived jobs alongside active jobs.
 - A user can unarchive a job.
+- A user can search loaded jobs by meaningful job text.
+- A user can filter loaded jobs by status.
+- A user can filter loaded jobs by priority when priority values exist.
+- A user can clear active search/status/priority filters.
+- A user sees a no-matching-jobs state when filters exclude all loaded jobs.
 - Candidate Profile and Resume Studio continue to work.
 
 ## Manual QA
@@ -194,8 +209,13 @@ Recommended manual QA:
 19. Confirm the checkbox reads "Include archived jobs."
 20. Enable "Include archived jobs" and confirm active and archived jobs appear.
 21. Unarchive the job and confirm it returns to the active list.
-22. Confirm no app-related browser console errors.
-23. Confirm no backend tracebacks.
+22. Search for a company, title, location, source, and note value and confirm matching loaded jobs appear.
+23. Filter by each supported status and confirm only matching loaded jobs appear.
+24. Add priority values, filter by priority, and confirm only matching loaded jobs appear.
+25. Use filters that match no loaded jobs and confirm the no-matching-jobs state appears.
+26. Clear filters and confirm the full loaded job list returns.
+27. Confirm no app-related browser console errors.
+28. Confirm no backend tracebacks.
 
 ## Codex Verification
 
@@ -204,13 +224,18 @@ Recommended manual QA:
 - Isolated FastAPI TestClient validation smoke checks: Pass.
 - Existing automated backend tests: Not available.
 - Existing automated frontend tests: Not available.
+- Later Sprint 4 Product Owner regression validation covered Job Tracker navigation and smoke behavior.
+- Sprint 5 frontend production build: Pass.
+- Sprint 5 backend py_compile: Pass.
+- Sprint 5 git diff whitespace check: Pass.
+- Sprint 5 merge-conflict marker scan: Pass.
 
 ## Future Improvements
 
 - Add automated backend tests for job endpoints.
 - Add frontend component and workflow tests.
 - Add authentication and job ownership.
-- Add search and filtering beyond archived visibility.
+- Add backend query filtering and pagination when dataset size, authentication, or dashboard needs justify it.
 - Add status history.
 - Add reminders.
 - Add recruiter/contact records.
